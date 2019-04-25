@@ -1,0 +1,8 @@
+parameter ldi=8'd1,
+jmp=8'd2,
+call=8'd3,
+out=8'd4,
+ret=8'd5,
+cli=8'd6,
+rjmp=8'd7,
+eor=8'd8;

@@ -1,0 +1,8 @@
+
+State Machine - |BasicMCUInFPGA|state
+Name state.STUCK state.WORK3 state.WORK2 state.WORK1 state.FETCH 
+state.FETCH 0 0 0 0 0 
+state.WORK1 0 0 0 1 1 
+state.WORK2 0 0 1 0 1 
+state.WORK3 0 1 0 0 1 
+state.STUCK 1 0 0 0 1 

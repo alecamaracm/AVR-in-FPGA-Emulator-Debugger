@@ -1,0 +1,21 @@
+module instructionSelector (
+									input [15:0]readedByte1,
+									output [7:0]OPCODE);
+									
+			
+always @(*)
+begin
+	
+	if(readedByte1[15:12]==4'b1110)
+		OPCODE=ldi;
+	else if(readedByte[15:9]==7'b1001010 && readedByte[3:1]==3'b110)
+		OPCODE=jmp;
+	else
+		OPCODE=8'd0;
+	
+	
+end
+			
+endmodule
+									
+									
