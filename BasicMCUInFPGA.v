@@ -1,11 +1,15 @@
 
 module BasicMCUInFPGA(input clk,
-							output [12:0]digitalIO,
+							output [15:0]digitalIO,
 							output stuck);
 
 assign stuck=(state==STUCK);
-assign digitalIO={IOregs[8'd5][5:0],IOregs[8'd11]};
-							
+//assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
+					//assign digitalIO={readedByte1};		
+//assign digitalIO={8'd0,OPCODE};	
+assign digitalIO={PC};	
+				
+				
 //Register file
 reg [7:0]reg1input;
 reg writeEn;
@@ -48,7 +52,7 @@ reg ram_WRen;
 
 //Working regs
 reg [3:0]state;
-parameter FETCH=4'd1,WORK1=4'd2,WORK2=4'd3,WORK3=4'd4,STUCK=4'd5;
+parameter FETCH=4'd0,WORK1=4'd1,WORK2=4'd2,WORK3=4'd3,STUCK=4'd4;
 
 reg [15:0]readedByte1;
 reg [15:0]readedByte2;
@@ -75,23 +79,21 @@ instructionSelector selector(readedByte1,OPCODE);
 registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
 
 FLASH flash(PC,PC+1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+//FLASH flash(0,1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 
 RAM ram(ram_address,clk,ram_inputData,ram_WRen,ram_outputData);
 
 
 
-initial begin
-	PC=16'd0;		
-end
-
 always @(posedge clk)
 begin
 
 	case (state)
+				
 		FETCH:
 		begin
-			readedByte1=flash_out_1; //Read PC
-			readedByte2=flash_out_2; //Read PC+1 (For 32bit instructions
+			readedByte1={flash_out_1[7:0],flash_out_1[15:8]}; //Read PC
+			readedByte2={flash_out_2[7:0],flash_out_2[15:8]}; //Read PC+1 (For 32bit instructions
 			state=WORK1; //Set the state to work
 		end
 		
@@ -111,7 +113,7 @@ begin
 				jmp:
 				begin
 					PC={readedByte1[8:4],readedByte1[0],readedByte2[15:0]}; //Set new value for PC
-					state=FETCH; //FETCH new instruction
+					state=STUCK; //FETCH new instruction
 				end
 				
 				
@@ -178,7 +180,7 @@ begin
 				
 			endcase
 			
-			if(state==WORK1) state=WORK2; //If the state has not been controlled, go to next state		
+			//if(state==WORK1) state=WORK2; //If the state has not been controlled, go to next state		
 		end
 		
 		WORK2:
@@ -226,7 +228,7 @@ begin
 							
 			endcase
 			
-			if(state==WORK2) state=WORK3; //If the state has not been controlled, go to next state		
+		//	if(state==WORK2) state=WORK3; //If the state has not been controlled, go to next state		
 		end
 		
 		WORK3:
@@ -261,7 +263,7 @@ begin
 			
 			endcase
 			
-			if(state==WORK3) state=STUCK; //If the state has not been controlled, go to STUCK forever
+			//if(state==WORK3) state=STUCK; //If the state has not been controlled, go to STUCK forever
 		end
 		
 		STUCK:
