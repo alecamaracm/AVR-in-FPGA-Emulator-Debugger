@@ -2,40 +2,76 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -5.079
+TNS   : -562.703
+
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -4.921
-TNS   : -394.249
+Slack : -3.643
+TNS   : -50.171
+
+Type  : Slow 1200mV 85C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
+Slack : 0.385
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.385
+Slack : 0.656
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -415.809
+TNS   : -27.415
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -2.693
+TNS   : -467.517
+
+Type  : Slow 1200mV 0C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -4.593
+TNS   : -507.238
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -4.423
-TNS   : -352.092
+Slack : -3.294
+TNS   : -45.043
+
+Type  : Slow 1200mV 0C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
+Slack : 0.338
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.339
+Slack : 0.598
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -410.177
+TNS   : -27.415
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -2.649
+TNS   : -461.621
+
+Type  : Fast 1200mV 0C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -1.893
+TNS   : -204.149
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.788
-TNS   : -137.448
+Slack : -1.313
+TNS   : -16.257
+
+Type  : Fast 1200mV 0C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
+Slack : 0.173
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.174
+Slack : 0.298
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -203.825
+TNS   : -23.184
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
+Slack : -1.000
+TNS   : -217.000
 
 ------------------------------------------------------------

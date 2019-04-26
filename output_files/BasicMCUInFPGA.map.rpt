@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BasicMCUInFPGA
-Thu Apr 25 16:03:48 2019
+Fri Apr 26 17:44:18 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -15,23 +15,21 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |BasicMCUInFPGA|state
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
- 16. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
- 17. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
- 18. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
- 19. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "FLASH:flash"
- 22. Port Connectivity Checks: "registerFile:regFile"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
- 26. Analysis & Synthesis Suppressed Messages
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
+ 14. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
+ 16. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "FLASH:flash"
+ 20. Port Connectivity Checks: "registerFile:regFile"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,18 +56,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 25 16:03:48 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri Apr 26 17:44:18 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 167                                         ;
-;     Total combinational functions  ; 166                                         ;
-;     Dedicated logic registers      ; 53                                          ;
-; Total registers                    ; 53                                          ;
-; Total pins                         ; 18                                          ;
+; Total logic elements               ; 287                                         ;
+;     Total combinational functions  ; 285                                         ;
+;     Dedicated logic registers      ; 102                                         ;
+; Total registers                    ; 102                                         ;
+; Total pins                         ; 27                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 262,144                                     ;
+; Total memory bits                  ; 278,528                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
@@ -174,7 +172,8 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -188,6 +187,7 @@ agreement for further details.
 ; FLASH.v                          ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v                ;         ;
 ; RAM.v                            ; yes             ; User Wizard-Generated File             ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v                  ;         ;
 ; instuctionSelector.v             ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/instuctionSelector.v   ;         ;
+; debouncer.v                      ; yes             ; User Verilog HDL File                  ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/debouncer.v            ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
@@ -205,52 +205,56 @@ agreement for further details.
 +----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 167       ;
-;                                             ;           ;
-; Total combinational functions               ; 166       ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 59        ;
-;     -- 3 input functions                    ; 56        ;
-;     -- <=2 input functions                  ; 51        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 109       ;
-;     -- arithmetic mode                      ; 57        ;
-;                                             ;           ;
-; Total registers                             ; 53        ;
-;     -- Dedicated logic registers            ; 53        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 18        ;
-; Total memory bits                           ; 262144    ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 85        ;
-; Total fan-out                               ; 1584      ;
-; Average fan-out                             ; 5.52      ;
-+---------------------------------------------+-----------+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                           ;
++---------------------------------------------+-----------------------------------------+
+; Resource                                    ; Usage                                   ;
++---------------------------------------------+-----------------------------------------+
+; Estimated Total logic elements              ; 287                                     ;
+;                                             ;                                         ;
+; Total combinational functions               ; 285                                     ;
+; Logic element usage by number of LUT inputs ;                                         ;
+;     -- 4 input functions                    ; 93                                      ;
+;     -- 3 input functions                    ; 98                                      ;
+;     -- <=2 input functions                  ; 94                                      ;
+;                                             ;                                         ;
+; Logic elements by mode                      ;                                         ;
+;     -- normal mode                          ; 186                                     ;
+;     -- arithmetic mode                      ; 99                                      ;
+;                                             ;                                         ;
+; Total registers                             ; 102                                     ;
+;     -- Dedicated logic registers            ; 102                                     ;
+;     -- I/O registers                        ; 0                                       ;
+;                                             ;                                         ;
+; I/O pins                                    ; 27                                      ;
+; Total memory bits                           ; 278528                                  ;
+;                                             ;                                         ;
+; Embedded Multiplier 9-bit elements          ; 0                                       ;
+;                                             ;                                         ;
+; Maximum fan-out node                        ; PushButton_Debouncer:debouncer|PB_state ;
+; Maximum fan-out                             ; 126                                     ;
+; Total fan-out                               ; 2222                                    ;
+; Average fan-out                             ; 4.62                                    ;
++---------------------------------------------+-----------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                 ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |BasicMCUInFPGA                           ; 166 (109)           ; 53 (51)                   ; 262144      ; 0            ; 0       ; 0         ; 18   ; 0            ; |BasicMCUInFPGA                                                                                         ; BasicMCUInFPGA      ; work         ;
-;    |FLASH:flash|                          ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash                                                                             ; FLASH               ; work         ;
-;       |altsyncram:altsyncram_component|   ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component                                             ; altsyncram          ; work         ;
-;          |altsyncram_c1k2:auto_generated| ; 32 (0)              ; 2 (2)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated              ; altsyncram_c1k2     ; work         ;
-;             |mux_iob:mux4|                ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux4 ; mux_iob             ; work         ;
-;             |mux_iob:mux5|                ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux5 ; mux_iob             ; work         ;
-;    |instructionSelector:selector|         ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                            ; instructionSelector ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                  ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Entity Name          ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |BasicMCUInFPGA                           ; 285 (207)           ; 102 (81)                  ; 278528      ; 0            ; 0       ; 0         ; 27   ; 0            ; |BasicMCUInFPGA                                                                                         ; BasicMCUInFPGA       ; work         ;
+;    |FLASH:flash|                          ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash                                                                             ; FLASH                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component                                             ; altsyncram           ; work         ;
+;          |altsyncram_c1k2:auto_generated| ; 32 (0)              ; 2 (2)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated              ; altsyncram_c1k2      ; work         ;
+;             |mux_iob:mux4|                ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux4 ; mux_iob              ; work         ;
+;             |mux_iob:mux5|                ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux5 ; mux_iob              ; work         ;
+;    |PushButton_Debouncer:debouncer|       ; 24 (24)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|PushButton_Debouncer:debouncer                                                          ; PushButton_Debouncer ; work         ;
+;    |RAM:ram|                              ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram                                                                                 ; RAM                  ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component                                                 ; altsyncram           ; work         ;
+;          |altsyncram_28g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated                  ; altsyncram_28g1      ; work         ;
+;    |instructionSelector:selector|         ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                            ; instructionSelector  ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -260,6 +264,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                  ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
 +---------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+-----------+
 ; FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 16384        ; 16           ; 16384        ; 16           ; 262144 ; Flash.hex ;
+; RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|ALTSYNCRAM     ; AUTO ; Single Port    ; 2048         ; 8            ; --           ; --           ; 16384  ; None      ;
 +---------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+-----------+
 
 
@@ -273,45 +278,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-----------------------------+-----------------+
 
 
-Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------+
-; State Machine - |BasicMCUInFPGA|state                                             ;
-+-------------+-------------+-------------+-------------+-------------+-------------+
-; Name        ; state.WORK3 ; state.WORK2 ; state.WORK1 ; state.FETCH ; state.STUCK ;
-+-------------+-------------+-------------+-------------+-------------+-------------+
-; state.FETCH ; 0           ; 0           ; 0           ; 0           ; 0           ;
-; state.WORK1 ; 0           ; 0           ; 1           ; 1           ; 0           ;
-; state.WORK2 ; 0           ; 1           ; 0           ; 1           ; 0           ;
-; state.WORK3 ; 1           ; 0           ; 0           ; 1           ; 0           ;
-; state.STUCK ; 0           ; 0           ; 0           ; 1           ; 1           ;
-+-------------+-------------+-------------+-------------+-------------+-------------+
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; state~5                                ; Lost fanout                            ;
-; state~6                                ; Lost fanout                            ;
-; state~8                                ; Lost fanout                            ;
-; state.WORK3                            ; Merged with state.WORK2                ;
-; state.WORK2                            ; Stuck at GND due to stuck port data_in ;
-; ram_WRen                               ; Lost fanout                            ;
-; ram_address[0]                         ; Lost fanout                            ;
-; SP[1..13]                              ; Lost fanout                            ;
-; Total Number of Removed Registers = 20 ;                                        ;
-+----------------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                 ;
-+---------------+---------------------------+---------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                          ;
-+---------------+---------------------------+---------------------------------------------------------------------------------+
-; state.WORK2   ; Stuck at GND              ; ram_WRen, SP[1], SP[2], SP[3], SP[4], SP[5], SP[6], SP[7], SP[8], SP[9], SP[10] ;
-;               ; due to stuck port data_in ;                                                                                 ;
-+---------------+---------------------------+---------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++---------------------------------------+---------------------------------------------+
+; Register name                         ; Reason for Removal                          ;
++---------------------------------------+---------------------------------------------+
+; state[3]                              ; Stuck at GND due to stuck port clock_enable ;
+; SP[11..13]                            ; Lost fanout                                 ;
+; Total Number of Removed Registers = 4 ;                                             ;
++---------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -319,12 +294,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 53    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 102   ;
+; Number of registers using Synchronous Clear  ; 16    ;
+; Number of registers using Synchronous Load   ; 11    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 46    ;
+; Number of registers using Clock Enable       ; 77    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -334,14 +309,12 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |BasicMCUInFPGA|ram_inputData[1]                       ;
-; 5:1                ; 13 bits   ; 39 LEs        ; 13 LEs               ; 26 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[5]                                  ;
-; 19:1               ; 10 bits   ; 120 LEs       ; 20 LEs               ; 100 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[3]                         ;
-; 20:1               ; 7 bits    ; 91 LEs        ; 21 LEs               ; 70 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[7]                                  ;
-; 21:1               ; 7 bits    ; 98 LEs        ; 21 LEs               ; 77 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[13]                                 ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 8 LEs                ; 88 LEs                 ; Yes        ; |BasicMCUInFPGA|ram_inputData[2]                       ;
+; 18:1               ; 13 bits   ; 156 LEs       ; 13 LEs               ; 143 LEs                ; Yes        ; |BasicMCUInFPGA|SP[10]                                 ;
+; 32:1               ; 10 bits   ; 210 LEs       ; 20 LEs               ; 190 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[4]                         ;
+; 32:1               ; 7 bits    ; 147 LEs       ; 21 LEs               ; 126 LEs                ; Yes        ; |BasicMCUInFPGA|PC[7]                                  ;
+; 33:1               ; 7 bits    ; 154 LEs       ; 21 LEs               ; 133 LEs                ; Yes        ; |BasicMCUInFPGA|PC[13]                                 ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE[1] ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 6 LEs                ; 9 LEs                  ; No         ; |BasicMCUInFPGA|Selector82                             ;
-; 22:1               ; 2 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; No         ; |BasicMCUInFPGA|Selector83                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -369,10 +342,12 @@ Encoding Type:  One-Hot
 ; Parameter Name ; Value ; Type                                                  ;
 +----------------+-------+-------------------------------------------------------+
 ; FETCH          ; 0000  ; Unsigned Binary                                       ;
-; WORK1          ; 0001  ; Unsigned Binary                                       ;
-; WORK2          ; 0010  ; Unsigned Binary                                       ;
-; WORK3          ; 0011  ; Unsigned Binary                                       ;
-; STUCK          ; 0100  ; Unsigned Binary                                       ;
+; FETCH2         ; 0001  ; Unsigned Binary                                       ;
+; FETCH3         ; 0010  ; Unsigned Binary                                       ;
+; WORK1          ; 0011  ; Unsigned Binary                                       ;
+; WORK2          ; 0100  ; Unsigned Binary                                       ;
+; WORK3          ; 0101  ; Unsigned Binary                                       ;
+; STUCK          ; 0110  ; Unsigned Binary                                       ;
 +----------------+-------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -556,24 +531,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
-; cycloneiii_ff         ; 53                          ;
-;     ENA               ; 46                          ;
-;     plain             ; 7                           ;
-; cycloneiii_lcell_comb ; 166                         ;
-;     arith             ; 57                          ;
-;         2 data inputs ; 42                          ;
-;         3 data inputs ; 15                          ;
-;     normal            ; 109                         ;
+; boundary_port         ; 27                          ;
+; cycloneiii_ff         ; 102                         ;
+;     ENA               ; 67                          ;
+;     ENA SLD           ; 10                          ;
+;     SCLR              ; 16                          ;
+;     SLD               ; 1                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 285                         ;
+;     arith             ; 99                          ;
+;         2 data inputs ; 75                          ;
+;         3 data inputs ; 24                          ;
+;     normal            ; 186                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 41                          ;
-;         4 data inputs ; 59                          ;
-; cycloneiii_ram_block  ; 32                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 74                          ;
+;         4 data inputs ; 93                          ;
+; cycloneiii_ram_block  ; 40                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 3.65                        ;
+; Average LUT depth     ; 3.84                        ;
 +-----------------------+-----------------------------+
 
 
@@ -582,7 +560,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -592,7 +570,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Apr 25 16:03:39 2019
+    Info: Processing started: Fri Apr 26 17:44:08 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BasicMCUInFPGA -c BasicMCUInFPGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -607,18 +585,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file ram.v
 Info (12021): Found 1 design units, including 1 entities, in source file instuctionselector.v
     Info (12023): Found entity 1: instructionSelector File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/instuctionSelector.v Line: 2
 Info (12021): Found 0 design units, including 0 entities, in source file my_params.v
+Info (12021): Found 1 design units, including 1 entities, in source file debouncer.v
+    Info (12023): Found entity 1: PushButton_Debouncer File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/debouncer.v Line: 1
 Info (12127): Elaborating entity "BasicMCUInFPGA" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at BasicMCUInFPGA.v(29): object "IOregs" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 29
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(115): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 115
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(123): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 123
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(142): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 142
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(201): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 201
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(218): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 218
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(241): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 241
-Warning (10030): Net "SP[0]" at BasicMCUInFPGA.v(24) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 24
-Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 73
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 79
-Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 81
+Warning (10036): Verilog HDL or VHDL warning at BasicMCUInFPGA.v(32): object "IOregs" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 32
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(143): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 143
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(164): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 164
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(223): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 223
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(241): truncated value with size 14 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 241
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(265): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 265
+Warning (10030): Net "SP[0]" at BasicMCUInFPGA.v(27) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 27
+Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 76
+Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 81
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 84
+Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 86
 Info (12128): Elaborating entity "altsyncram" for hierarchy "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12130): Elaborated megafunction instantiation "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12133): Instantiated megafunction "FLASH:flash|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
@@ -658,7 +638,7 @@ Info (12128): Elaborating entity "decode_jsa" for hierarchy "FLASH:flash|altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_iob.tdf
     Info (12023): Found entity 1: mux_iob File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/mux_iob.tdf Line: 23
 Info (12128): Elaborating entity "mux_iob" for hierarchy "FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux4" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf Line: 49
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 84
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 89
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12130): Elaborated megafunction instantiation "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12133): Instantiated megafunction "RAM:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
@@ -679,42 +659,24 @@ Info (12133): Instantiated megafunction "RAM:ram|altsyncram:altsyncram_component
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_28g1.tdf
     Info (12023): Found entity 1: altsyncram_28g1 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_28g1" for hierarchy "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[0]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 37
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[1]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 59
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[2]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 81
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[3]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 103
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[4]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 125
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[5]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 147
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[6]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 169
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[7]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 191
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[0]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 37
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[1]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 59
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[2]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 81
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[3]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 103
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[4]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 125
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[5]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 147
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[6]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 169
-        Warning (14320): Synthesized away node "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|q_a[7]" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 191
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "debug[3]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/output_files/BasicMCUInFPGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 217 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 17 output pins
-    Info (21061): Implemented 167 logic cells
-    Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
-    Info: Peak virtual memory: 4802 megabytes
-    Info: Processing ended: Thu Apr 25 16:03:48 2019
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:20
+Info (21057): Implemented 354 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 25 output pins
+    Info (21061): Implemented 287 logic cells
+    Info (21064): Implemented 40 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Fri Apr 26 17:44:18 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

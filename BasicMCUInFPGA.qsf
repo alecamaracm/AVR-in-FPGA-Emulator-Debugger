@@ -76,4 +76,14 @@ set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_location_assignment PIN_F15 -to digitalIO[14]
 set_location_assignment PIN_H17 -to digitalIO[13]
 set_location_assignment PIN_G15 -to digitalIO[15]
+set_global_assignment -name VERILOG_FILE debouncer.v
+set_location_assignment PIN_M23 -to butt
+set_location_assignment PIN_E22 -to debug[1]
+set_location_assignment PIN_E25 -to debug[2]
+set_location_assignment PIN_E24 -to debug[3]
+set_location_assignment PIN_E21 -to debug[0]
+set_location_assignment PIN_G20 -to debug[5]
+set_location_assignment PIN_G22 -to debug[6]
+set_location_assignment PIN_G21 -to debug[7]
+set_location_assignment PIN_H21 -to debug[4]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

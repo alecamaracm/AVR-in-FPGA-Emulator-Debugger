@@ -1,13 +1,16 @@
 
 module BasicMCUInFPGA(input clk,
 							output [15:0]digitalIO,
-							output stuck);
+							output stuck,
+							input butt,
+							output [7:0]debug);
 
 assign stuck=(state==STUCK);
 //assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
 					//assign digitalIO={readedByte1};		
 //assign digitalIO={8'd0,OPCODE};	
-assign digitalIO={PC};	
+assign digitalIO=PC;
+assign debug={OPCODE[3:0],state};	
 				
 				
 //Register file
@@ -52,7 +55,7 @@ reg ram_WRen;
 
 //Working regs
 reg [3:0]state;
-parameter FETCH=4'd0,WORK1=4'd1,WORK2=4'd2,WORK3=4'd3,STUCK=4'd4;
+parameter FETCH=4'd0,FETCH2=4'd1,FETCH3=4'd2,WORK1=4'd3,WORK2=4'd4,WORK3=4'd5,STUCK=4'd6;
 
 reg [15:0]readedByte1;
 reg [15:0]readedByte2;
@@ -73,28 +76,43 @@ eor=8'd8;
 instructionSelector selector(readedByte1,OPCODE);
 
 
+wire myClock;
+
+PushButton_Debouncer debouncer(clk,butt,myClock);
 
 
+registerFile regFile(myClock,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
 
-registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
-
-FLASH flash(PC,PC+1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+FLASH flash(PC,PC+1,myClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 //FLASH flash(0,1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 
-RAM ram(ram_address,clk,ram_inputData,ram_WRen,ram_outputData);
+RAM ram(ram_address,myClock,ram_inputData,ram_WRen,ram_outputData);
 
 
 
-always @(posedge clk)
+always @(posedge myClock)
 begin
 
 	case (state)
 				
 		FETCH:
 		begin
+			//Wait for the RAM to output the data			
+			state=FETCH2;
+		end
+		
+		FETCH2:
+		begin
 			readedByte1={flash_out_1[7:0],flash_out_1[15:8]}; //Read PC
 			readedByte2={flash_out_2[7:0],flash_out_2[15:8]}; //Read PC+1 (For 32bit instructions
-			state=WORK1; //Set the state to work
+			//state=WORK1; //Set the state to work
+		//	PC=PC+1;
+			state=FETCH3;
+		end
+		
+		FETCH3:
+		begin //The instructionSelector does its job in this tick
+			state=WORK1;
 		end
 		
 		WORK1:
@@ -107,13 +125,15 @@ begin
 					reg1input={readedByte1[11:8],readedByte1[3:0]};
 					writeEn=1'b1; 
 					//Go to next state now,while the value is being stored
+					state=WORK2;
 				end
 				
 				
 				jmp:
 				begin
-					PC={readedByte1[8:4],readedByte1[0],readedByte2[15:0]}; //Set new value for PC
-					state=STUCK; //FETCH new instruction
+					PC={readedByte2[15:0]}; //Set new value for PC (We are not using the full 32 bit as the datasheet seys (we don't need it for the ATMega328P
+					//Shift 1 to the left because it works :D
+					state=FETCH; //FETCH new instruction
 				end
 				
 				
@@ -125,6 +145,7 @@ begin
 					ram_inputData=PC[15:8]; //Save the most significant digits to the first stack
 					ram_WRen=1'b1;
 					//Go to the next state by default, while the data1 is stored
+					state=WORK2;
 				end
 				
 				
@@ -133,6 +154,7 @@ begin
 					writeEn=1'b0; //Just in case, we sent writeEn to 0
 					reg1address=readedByte1[8:4]; //Request the data in the register file stored in the register we want
 					//Wait just in case the register file taskes 1 cycle to output the data
+					state=WORK2;
 				end
 				
 				ret:
@@ -141,6 +163,7 @@ begin
 					ram_WRen=1'b0; //Make sure we are not writing
 					ram_address=SP; //Set the stack address to read
 					//Waits for the ram to provide the data
+					state=WORK2;
 				end
 			
 				
@@ -166,6 +189,7 @@ begin
 					reg2address={readedByte1[9],readedByte1[3:0]}; //Read r2
 
 					//Wait just in case for the register file
+					state=WORK2;
 				end
 				
 				error:
@@ -178,9 +202,7 @@ begin
 					state=STUCK; //Uknown OPCODE
 				end
 				
-			endcase
-			
-			//if(state==WORK1) state=WORK2; //If the state has not been controlled, go to next state		
+			endcase		
 		end
 		
 		WORK2:
@@ -201,7 +223,8 @@ begin
 					ram_address=SP-14'b1; //Store the next instruction into the address				
 					ram_inputData=PC[7:0]; //Save the LEAST significant digits to the first stack
 					ram_WRen=1'b1;
-					//Go to the next state by default, while the data2 is stored				
+					//Go to the next state by default, while the data2 is stored			
+					state=WORK3;	
 				end
 				
 				
@@ -217,6 +240,7 @@ begin
 					PC[15:8]=ram_outputData; //Set the MSB of the PC to the data from the stack
 					ram_address=SP-14'b1; //Read the LSB part
 					//Wait until the LSB part can be read
+					state=WORK3;
 				end	
 				
 				eor:
@@ -224,11 +248,11 @@ begin
 				   reg1input=reg1output^reg2output; //Do the xor operation and store it in the first register					
 					writeEn=1'b1; //Enable the writing
 					//Wait for the write
+					state=WORK3;
 				end
 							
-			endcase
-			
-		//	if(state==WORK2) state=WORK3; //If the state has not been controlled, go to next state		
+			endcase			
+	
 		end
 		
 		WORK3:
@@ -258,12 +282,10 @@ begin
 					SREG[1]=(reg1input==8'b0);					
 					PC=PC+16'd1;
 					state=FETCH; //Finished, go on with the execution	
-				end
-		
+				end		
 			
-			endcase
-			
-			//if(state==WORK3) state=STUCK; //If the state has not been controlled, go to STUCK forever
+			endcase			
+
 		end
 		
 		STUCK:

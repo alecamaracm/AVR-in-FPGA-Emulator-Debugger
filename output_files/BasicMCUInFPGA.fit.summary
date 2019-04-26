@@ -1,16 +1,16 @@
-Fitter Status : Successful - Thu Apr 25 16:04:03 2019
+Fitter Status : Successful - Fri Apr 26 17:44:35 2019
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : BasicMCUInFPGA
 Top-level Entity Name : BasicMCUInFPGA
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 166 / 114,480 ( < 1 % )
-    Total combinational functions : 166 / 114,480 ( < 1 % )
-    Dedicated logic registers : 53 / 114,480 ( < 1 % )
-Total registers : 53
-Total pins : 18 / 529 ( 3 % )
+Total logic elements : 287 / 114,480 ( < 1 % )
+    Total combinational functions : 285 / 114,480 ( < 1 % )
+    Dedicated logic registers : 102 / 114,480 ( < 1 % )
+Total registers : 102
+Total pins : 27 / 529 ( 5 % )
 Total virtual pins : 0
-Total memory bits : 262,144 / 3,981,312 ( 7 % )
+Total memory bits : 278,528 / 3,981,312 ( 7 % )
 Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )

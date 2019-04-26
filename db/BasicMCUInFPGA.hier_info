@@ -1,5 +1,5 @@
 |BasicMCUInFPGA
-clk => clk.IN3
+clk => clk.IN1
 digitalIO[0] <= PC[0].DB_MAX_OUTPUT_PORT_TYPE
 digitalIO[1] <= PC[1].DB_MAX_OUTPUT_PORT_TYPE
 digitalIO[2] <= PC[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -16,7 +16,16 @@ digitalIO[12] <= PC[12].DB_MAX_OUTPUT_PORT_TYPE
 digitalIO[13] <= PC[13].DB_MAX_OUTPUT_PORT_TYPE
 digitalIO[14] <= PC[14].DB_MAX_OUTPUT_PORT_TYPE
 digitalIO[15] <= PC[15].DB_MAX_OUTPUT_PORT_TYPE
-stuck <= stuck.DB_MAX_OUTPUT_PORT_TYPE
+stuck <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+butt => butt.IN1
+debug[0] <= state[0].DB_MAX_OUTPUT_PORT_TYPE
+debug[1] <= state[1].DB_MAX_OUTPUT_PORT_TYPE
+debug[2] <= state[2].DB_MAX_OUTPUT_PORT_TYPE
+debug[3] <= state[3].DB_MAX_OUTPUT_PORT_TYPE
+debug[4] <= instructionSelector:selector.port1
+debug[5] <= instructionSelector:selector.port1
+debug[6] <= instructionSelector:selector.port1
+debug[7] <= instructionSelector:selector.port1
 
 
 |BasicMCUInFPGA|instructionSelector:selector
@@ -92,6 +101,30 @@ OPCODE[4] <= <GND>
 OPCODE[5] <= <GND>
 OPCODE[6] <= <GND>
 OPCODE[7] <= <GND>
+
+
+|BasicMCUInFPGA|PushButton_Debouncer:debouncer
+clk => PB_state~reg0.CLK
+clk => PB_cnt[0].CLK
+clk => PB_cnt[1].CLK
+clk => PB_cnt[2].CLK
+clk => PB_cnt[3].CLK
+clk => PB_cnt[4].CLK
+clk => PB_cnt[5].CLK
+clk => PB_cnt[6].CLK
+clk => PB_cnt[7].CLK
+clk => PB_cnt[8].CLK
+clk => PB_cnt[9].CLK
+clk => PB_cnt[10].CLK
+clk => PB_cnt[11].CLK
+clk => PB_cnt[12].CLK
+clk => PB_cnt[13].CLK
+clk => PB_cnt[14].CLK
+clk => PB_cnt[15].CLK
+clk => PB_sync_1.CLK
+clk => PB_sync_0.CLK
+PB => PB_sync_0.DATAIN
+PB_state <= PB_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |BasicMCUInFPGA|registerFile:regFile
