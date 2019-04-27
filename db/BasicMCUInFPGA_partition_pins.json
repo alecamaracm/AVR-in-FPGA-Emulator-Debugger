@@ -102,10 +102,6 @@
 				{
 					"name" : "clk",
 					"strict" : false
-				},
-				{
-					"name" : "butt",
-					"strict" : false
 				}
 			]
 		}

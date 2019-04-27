@@ -2,76 +2,40 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -5.079
-TNS   : -562.703
-
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -3.643
-TNS   : -50.171
-
-Type  : Slow 1200mV 85C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
-Slack : 0.385
-TNS   : 0.000
+Slack : -5.639
+TNS   : -729.970
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.656
+Slack : 0.328
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -27.415
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -2.693
-TNS   : -467.517
-
-Type  : Slow 1200mV 0C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -4.593
-TNS   : -507.238
+TNS   : -542.477
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.294
-TNS   : -45.043
-
-Type  : Slow 1200mV 0C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
-Slack : 0.338
-TNS   : 0.000
+Slack : -5.052
+TNS   : -650.089
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.598
+Slack : 0.336
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -27.415
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -2.649
-TNS   : -461.621
-
-Type  : Fast 1200mV 0C Model Setup 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -1.893
-TNS   : -204.149
+TNS   : -536.581
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.313
-TNS   : -16.257
-
-Type  : Fast 1200mV 0C Model Hold 'PushButton_Debouncer:debouncer|PB_state'
-Slack : 0.173
-TNS   : 0.000
+Slack : -2.228
+TNS   : -259.828
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.298
+Slack : 0.129
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -23.184
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PushButton_Debouncer:debouncer|PB_state'
-Slack : -1.000
-TNS   : -217.000
+TNS   : -301.995
 
 ------------------------------------------------------------

@@ -7,8 +7,9 @@ module BasicMCUInFPGA(input clk,
 
 assign stuck=(state==STUCK);
 //assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
-					//assign digitalIO={readedByte1};		
+//assign digitalIO={readedByte1};		
 //assign digitalIO={8'd0,OPCODE};	
+//assign digitalIO=PC;
 assign digitalIO=PC;
 assign debug={OPCODE[3:0],state};	
 				
@@ -24,7 +25,7 @@ wire [7:0]reg2output;
 
 reg [7:0]SREG;
 
-reg [13:0]SP;
+reg [15:0]SP;
 reg [13:0]RA;
 
 reg [15:0]PC;
@@ -73,6 +74,8 @@ rjmp=8'd7,
 eor=8'd8;
 
 
+
+
 instructionSelector selector(readedByte1,OPCODE);
 
 
@@ -81,16 +84,16 @@ wire myClock;
 PushButton_Debouncer debouncer(clk,butt,myClock);
 
 
-registerFile regFile(myClock,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
+registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
 
-FLASH flash(PC,PC+1,myClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+FLASH flash(PC,PC+1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 //FLASH flash(0,1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 
-RAM ram(ram_address,myClock,ram_inputData,ram_WRen,ram_outputData);
+RAM ram(ram_address,clk,ram_inputData,ram_WRen,ram_outputData);
 
 
 
-always @(posedge myClock)
+always @(posedge clk)
 begin
 
 	case (state)
@@ -231,8 +234,9 @@ begin
 				out:
 				begin
 					IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output
+					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101) SP[7:0]=IOregs[61];  //If the IO reg is 61, it is SPl
+					if({readedByte1[10:9],readedByte1[3:0]}==6'b111110) SP[15:8]=IOregs[62]; //If the IO reg is 62, its is SPH
 					PC=PC+16'd1;
-					state=FETCH; //Go to the next instruction
 				end
 				
 				ret:
@@ -296,6 +300,9 @@ begin
 	endcase
 	
 	SREG[4]=SREG[3]^SREG[2]; //Update the XOR in the SREG register
+	
+	IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
+	IOregs[62]=SP[15:8];
 end
 
 endmodule
