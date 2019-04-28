@@ -5,5 +5,8 @@
     <Setting Name="selectedFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">- - -</Value>
     </Setting>
+    <Setting Name="outputFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">- - -</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

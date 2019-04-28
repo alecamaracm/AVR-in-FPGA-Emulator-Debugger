@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BasicMCUInFPGA
-Sat Apr 27 18:58:10 2019
+Sat Apr 27 20:11:14 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -16,22 +16,21 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
  10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
- 15. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
- 17. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
- 18. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
- 19. altsyncram Parameter Settings by Entity Instance
- 20. Port Connectivity Checks: "FLASH:flash"
- 21. Port Connectivity Checks: "registerFile:regFile"
- 22. Port Connectivity Checks: "PushButton_Debouncer:debouncer"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
- 26. Analysis & Synthesis Suppressed Messages
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
+ 14. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
+ 16. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "FLASH:flash"
+ 20. Port Connectivity Checks: "registerFile:regFile"
+ 21. Port Connectivity Checks: "PushButton_Debouncer:debouncer"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,15 +57,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Apr 27 18:58:10 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sat Apr 27 20:11:13 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 422                                         ;
-;     Total combinational functions  ; 378                                         ;
-;     Dedicated logic registers      ; 139                                         ;
-; Total registers                    ; 139                                         ;
+; Total logic elements               ; 465                                         ;
+;     Total combinational functions  ; 421                                         ;
+;     Dedicated logic registers      ; 160                                         ;
+; Total registers                    ; 160                                         ;
 ; Total pins                         ; 27                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 278,528                                     ;
@@ -211,20 +210,20 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 422       ;
+; Estimated Total logic elements              ; 465       ;
 ;                                             ;           ;
-; Total combinational functions               ; 378       ;
+; Total combinational functions               ; 421       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 172       ;
-;     -- 3 input functions                    ; 122       ;
-;     -- <=2 input functions                  ; 84        ;
+;     -- 4 input functions                    ; 185       ;
+;     -- 3 input functions                    ; 144       ;
+;     -- <=2 input functions                  ; 92        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 293       ;
-;     -- arithmetic mode                      ; 85        ;
+;     -- normal mode                          ; 326       ;
+;     -- arithmetic mode                      ; 95        ;
 ;                                             ;           ;
-; Total registers                             ; 139       ;
-;     -- Dedicated logic registers            ; 139       ;
+; Total registers                             ; 160       ;
+;     -- Dedicated logic registers            ; 160       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 27        ;
@@ -233,9 +232,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 179       ;
-; Total fan-out                               ; 2743      ;
-; Average fan-out                             ; 4.49      ;
+; Maximum fan-out                             ; 200       ;
+; Total fan-out                               ; 2947      ;
+; Average fan-out                             ; 4.37      ;
 +---------------------------------------------+-----------+
 
 
@@ -244,7 +243,7 @@ agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |BasicMCUInFPGA                           ; 378 (269)           ; 139 (97)                  ; 278528      ; 0            ; 0       ; 0         ; 27   ; 0            ; |BasicMCUInFPGA                                                                                         ; BasicMCUInFPGA      ; work         ;
+; |BasicMCUInFPGA                           ; 421 (310)           ; 160 (118)                 ; 278528      ; 0            ; 0       ; 0         ; 27   ; 0            ; |BasicMCUInFPGA                                                                                         ; BasicMCUInFPGA      ; work         ;
 ;    |FLASH:flash|                          ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash                                                                             ; FLASH               ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 32 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component                                             ; altsyncram          ; work         ;
 ;          |altsyncram_c1k2:auto_generated| ; 32 (0)              ; 2 (2)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated              ; altsyncram_c1k2     ; work         ;
@@ -253,7 +252,7 @@ agreement for further details.
 ;    |RAM:ram|                              ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram                                                                                 ; RAM                 ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component                                                 ; altsyncram          ; work         ;
 ;          |altsyncram_28g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated                  ; altsyncram_28g1     ; work         ;
-;    |instructionSelector:selector|         ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                            ; instructionSelector ; work         ;
+;    |instructionSelector:selector|         ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                            ; instructionSelector ; work         ;
 ;    |registerFile:regFile|                 ; 54 (54)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile                                                                    ; registerFile        ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -279,40 +278,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-----------------------------+-----------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                   ;
-+----------------------------------------+---------------------------------------------+
-; Register name                          ; Reason for Removal                          ;
-+----------------------------------------+---------------------------------------------+
-; IOregs[62][7]                          ; Merged with SP[15]                          ;
-; IOregs[62][6]                          ; Merged with SP[14]                          ;
-; IOregs[62][5]                          ; Merged with SP[13]                          ;
-; IOregs[62][4]                          ; Merged with SP[12]                          ;
-; IOregs[62][3]                          ; Merged with SP[11]                          ;
-; IOregs[62][2]                          ; Merged with SP[10]                          ;
-; IOregs[62][1]                          ; Merged with SP[9]                           ;
-; IOregs[62][0]                          ; Merged with SP[8]                           ;
-; IOregs[61][7]                          ; Merged with SP[7]                           ;
-; IOregs[61][6]                          ; Merged with SP[6]                           ;
-; IOregs[61][5]                          ; Merged with SP[5]                           ;
-; IOregs[61][4]                          ; Merged with SP[4]                           ;
-; IOregs[61][3]                          ; Merged with SP[3]                           ;
-; IOregs[61][2]                          ; Merged with SP[2]                           ;
-; IOregs[61][1]                          ; Merged with SP[1]                           ;
-; IOregs[61][0]                          ; Merged with SP[0]                           ;
-; state[3]                               ; Stuck at GND due to stuck port clock_enable ;
-; SP[11..15]                             ; Lost fanout                                 ;
-; Total Number of Removed Registers = 22 ;                                             ;
-+----------------------------------------+---------------------------------------------+
-
-
-+-----------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                 ;
-+---------------+--------------------+----------------------------------------+
-; Register name ; Reason for Removal ; Registers Removed due to This Register ;
-+---------------+--------------------+----------------------------------------+
-; SP[15]        ; Lost Fanouts       ; SP[14], SP[13], SP[12], SP[11]         ;
-+---------------+--------------------+----------------------------------------+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++---------------------------------------+---------------------------------------------+
+; Register name                         ; Reason for Removal                          ;
++---------------------------------------+---------------------------------------------+
+; state[3]                              ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 1 ;                                             ;
++---------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -320,12 +293,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 139   ;
+; Total registers                              ; 160   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 31    ;
+; Number of registers using Synchronous Load   ; 34    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 131   ;
+; Number of registers using Clock Enable       ; 153   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -335,16 +308,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |BasicMCUInFPGA|reg1address[0]                         ;
-; 18:1               ; 8 bits    ; 96 LEs        ; 8 LEs                ; 88 LEs                 ; Yes        ; |BasicMCUInFPGA|reg1input[7]                           ;
-; 18:1               ; 8 bits    ; 96 LEs        ; 8 LEs                ; 88 LEs                 ; Yes        ; |BasicMCUInFPGA|ram_inputData[7]                       ;
-; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[3]                                  ;
-; 19:1               ; 8 bits    ; 96 LEs        ; 16 LEs               ; 80 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[10]                                 ;
-; 32:1               ; 10 bits   ; 210 LEs       ; 20 LEs               ; 190 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[8]                         ;
-; 32:1               ; 4 bits    ; 84 LEs        ; 12 LEs               ; 72 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[3]                                  ;
-; 33:1               ; 3 bits    ; 66 LEs        ; 9 LEs                ; 57 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[6]                                  ;
-; 33:1               ; 4 bits    ; 88 LEs        ; 12 LEs               ; 76 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[9]                                  ;
-; 32:1               ; 4 bits    ; 84 LEs        ; 12 LEs               ; 72 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[8]                                  ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |BasicMCUInFPGA|reg1address[2]                         ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 8 LEs                ; 88 LEs                 ; Yes        ; |BasicMCUInFPGA|reg1input[0]                           ;
+; 18:1               ; 8 bits    ; 96 LEs        ; 8 LEs                ; 88 LEs                 ; Yes        ; |BasicMCUInFPGA|ram_inputData[0]                       ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 14 LEs               ; 70 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[7]                                  ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 16 LEs               ; 80 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[8]                                  ;
+; 32:1               ; 10 bits   ; 210 LEs       ; 20 LEs               ; 190 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[2]                         ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 12 LEs               ; 72 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[9]                                  ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 12 LEs               ; 76 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[8]                                  ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 12 LEs               ; 76 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[3]                                  ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 9 LEs                ; 54 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[4]                                  ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
@@ -572,25 +545,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 27                          ;
-; cycloneiii_ff         ; 139                         ;
-;     ENA               ; 101                         ;
-;     ENA SLD           ; 30                          ;
+; cycloneiii_ff         ; 160                         ;
+;     ENA               ; 120                         ;
+;     ENA SLD           ; 33                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 7                           ;
-; cycloneiii_lcell_comb ; 380                         ;
-;     arith             ; 85                          ;
-;         2 data inputs ; 70                          ;
+;     plain             ; 6                           ;
+; cycloneiii_lcell_comb ; 423                         ;
+;     arith             ; 95                          ;
+;         2 data inputs ; 80                          ;
 ;         3 data inputs ; 15                          ;
-;     normal            ; 295                         ;
+;     normal            ; 328                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 9                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 107                         ;
-;         4 data inputs ; 172                         ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 129                         ;
+;         4 data inputs ; 185                         ;
 ; cycloneiii_ram_block  ; 40                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 3.93                        ;
+; Average LUT depth     ; 4.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -609,7 +582,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat Apr 27 18:58:00 2019
+    Info: Processing started: Sat Apr 27 20:11:03 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BasicMCUInFPGA -c BasicMCUInFPGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -630,8 +603,8 @@ Info (12127): Elaborating entity "BasicMCUInFPGA" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(146): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 146
 Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(167): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 167
 Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(226): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 226
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(245): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 245
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(269): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 269
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(248): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 248
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(272): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 272
 Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 79
 Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 84
 Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 87
@@ -702,22 +675,21 @@ Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "debug[3]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 6
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/output_files/BasicMCUInFPGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "butt" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 5
-Info (21057): Implemented 489 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 548 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 25 output pins
-    Info (21061): Implemented 422 logic cells
+    Info (21061): Implemented 481 logic cells
     Info (21064): Implemented 40 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4802 megabytes
-    Info: Processing ended: Sat Apr 27 18:58:10 2019
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Sat Apr 27 20:11:14 2019
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

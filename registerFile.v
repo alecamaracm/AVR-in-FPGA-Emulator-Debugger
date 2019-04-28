@@ -19,7 +19,7 @@ always @(posedge clk)
 begin	
 	if(writeEn)
 	begin
-		regs[reg1address]<=reg1input;
+		regs[reg1address]=reg1input;
 	end
 	
 end

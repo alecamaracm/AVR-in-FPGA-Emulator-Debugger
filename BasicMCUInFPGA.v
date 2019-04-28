@@ -9,8 +9,8 @@ assign stuck=(state==STUCK);
 //assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
 //assign digitalIO={readedByte1};		
 //assign digitalIO={8'd0,OPCODE};	
-//assign digitalIO=PC;
-assign digitalIO=PC;
+assign digitalIO=SP;
+//assign digitalIO={IOregs[62],reg1output};
 assign debug={OPCODE[3:0],state};	
 				
 				
@@ -237,11 +237,14 @@ begin
 					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101) SP[7:0]=IOregs[61];  //If the IO reg is 61, it is SPl
 					if({readedByte1[10:9],readedByte1[3:0]}==6'b111110) SP[15:8]=IOregs[62]; //If the IO reg is 62, its is SPH
 					PC=PC+16'd1;
+					
+					//if({readedByte1[10:9],readedByte1[3:0]}==6'b111101)state=STUCK; //Go to the next instruction
+					state=FETCH; //Go to the next instruction
 				end
 				
 				ret:
 				begin
-					PC[15:8]=ram_outputData; //Set the MSB of the PC to the data from the stack
+					PC[7:0]=ram_outputData; //Set the MSB of the PC to the data from the stack
 					ram_address=SP-14'b1; //Read the LSB part
 					//Wait until the LSB part can be read
 					state=WORK3;
@@ -274,7 +277,7 @@ begin
 				
 				ret:
 				begin
-					PC[7:0]=ram_outputData; //Set the MSB of the PC to the data from the stack
+					PC[15:8]=ram_outputData; //Set the MSB of the PC to the data from the stack
 					state=FETCH; //Finished, go on with the execution				
 				end
 				
@@ -301,8 +304,8 @@ begin
 	
 	SREG[4]=SREG[3]^SREG[2]; //Update the XOR in the SREG register
 	
-	IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
-	IOregs[62]=SP[15:8];
+	/*IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
+	IOregs[62]=SP[15:8];*/
 end
 
 endmodule

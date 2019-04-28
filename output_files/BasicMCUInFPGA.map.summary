@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Apr 27 18:58:10 2019
+Analysis & Synthesis Status : Successful - Sat Apr 27 20:11:13 2019
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : BasicMCUInFPGA
 Top-level Entity Name : BasicMCUInFPGA
 Family : Cyclone IV E
-Total logic elements : 422
-    Total combinational functions : 378
-    Dedicated logic registers : 139
-Total registers : 139
+Total logic elements : 465
+    Total combinational functions : 421
+    Dedicated logic registers : 160
+Total registers : 160
 Total pins : 27
 Total virtual pins : 0
 Total memory bits : 278,528

@@ -34,5 +34,17 @@ namespace FPGAUploader.Properties {
                 this["selectedFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("- - -")]
+        public string outputFile {
+            get {
+                return ((string)(this["outputFile"]));
+            }
+            set {
+                this["outputFile"] = value;
+            }
+        }
     }
 }

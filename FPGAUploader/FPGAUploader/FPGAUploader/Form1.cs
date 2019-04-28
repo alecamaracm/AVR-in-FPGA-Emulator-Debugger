@@ -29,12 +29,14 @@ namespace FPGAUploader
         private void Form1_Load(object sender, EventArgs e)
         {
             selectedFile.Text = Settings.Default.selectedFile;
+            outputFile.Text = Settings.Default.outputFile;
             UpdateFileHook();
         }
 
         private void UpdateFileHook()
         {
             if (selectedFile.Text == "- - -") return;
+            if (outputFile.Text == "- - -") return;
             watcher = new FileSystemWatcher();
             watcher.Path = new FileInfo(selectedFile.Text).Directory.FullName;
             watcher.Filter ="*"+ new FileInfo(selectedFile.Text).Name;
@@ -72,7 +74,7 @@ namespace FPGAUploader
                 lines[i] = ":" + lines[i];
             }
 
-            using (StreamWriter writer = new StreamWriter(selectedFile.Text))
+            using (StreamWriter writer = new StreamWriter(outputFile.Text))
             {
                 foreach (string line in lines) writer.WriteLine(line);
             }
@@ -89,6 +91,17 @@ namespace FPGAUploader
                 UpdateFileHook();
             }
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                outputFile.Text = openFileDialog2.FileName;
+                Settings.Default.outputFile = outputFile.Text;
+                Settings.Default.Save();
+                UpdateFileHook();
+            }
         }
     }
 }
