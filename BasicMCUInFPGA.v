@@ -1,4 +1,10 @@
 
+
+/*
+	Bit 5 in the SREG in NOT implemented (Half carry)
+
+*/
+
 module BasicMCUInFPGA(input clk,
 							output [15:0]digitalIO,
 							output stuck,
@@ -30,7 +36,7 @@ reg [13:0]RA;
 
 reg [15:0]PC;
 
-reg [7:0]IOregs[63];
+reg [7:0]IOregs[64];
 
 
 //Flash
@@ -71,7 +77,11 @@ out=8'd4,
 ret=8'd5,
 cli=8'd6,
 rjmp=8'd7,
-eor=8'd8;
+eor=8'd8,
+subi=8'd9,
+sbci=8'd10,
+brne=8'd11,
+nop=8'd12;	
 
 
 
@@ -195,6 +205,34 @@ begin
 					state=WORK2;
 				end
 				
+				
+				subi:
+				begin
+					writeEn=1'b0; //We are reading 
+					reg1address=5'd16+readedByte1[7:4];  //Register we are substracing from and to (16-32)
+					state=WORK2; //Wait until next cycle for the output
+				end
+				
+				sbci:
+				begin
+					writeEn=1'b0; //We are reading 
+					reg1address=5'd16+readedByte1[7:4];  //Register we are substracing from and to (16-32)
+					state=WORK2; //Wait until next cycle for the output
+				end
+				
+				brne:
+				begin
+					if(SREG[1]==1'b1) //If the zero flag is set do the jump	
+					begin
+						PC=PC+({readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9:3]})+16'd1;  //Jump to the sign extended offset +1				
+					end
+					else
+					begin
+						PC=PC+16'd1;
+					end
+					state=FETCH;					
+				end
+				
 				error:
 				begin
 					state=STUCK; //OPCODE not defined
@@ -234,11 +272,10 @@ begin
 				out:
 				begin
 					IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output
-					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101) SP[7:0]=IOregs[61];  //If the IO reg is 61, it is SPl
-					if({readedByte1[10:9],readedByte1[3:0]}==6'b111110) SP[15:8]=IOregs[62]; //If the IO reg is 62, its is SPH
-					PC=PC+16'd1;
-					
-					//if({readedByte1[10:9],readedByte1[3:0]}==6'b111101)state=STUCK; //Go to the next instruction
+					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101) SP[7:0]=reg1output;  //If the IO reg is 61, it is SPl
+					if({readedByte1[10:9],readedByte1[3:0]}==6'b111110) SP[15:8]=reg1output; //If the IO reg is 62, its is SPH
+					PC=PC+16'd1;				
+		
 					state=FETCH; //Go to the next instruction
 				end
 				
@@ -258,6 +295,29 @@ begin
 					state=WORK3;
 				end
 							
+			
+				subi:
+				begin
+					//Address should already be set from the last step
+					reg1input=reg1output-{readedByte1[11:8],readedByte1[3:0]};
+					SREG[3]=(reg1output[7] & !readedByte1[11] & !reg1input[7])|(!reg1output[7] & readedByte1[11] & reg1input[7]);
+					SREG[0]= (!reg1output[7] & readedByte1[11])|(readedByte1[11] & reg1input[7])|(reg1input[7] & !reg1output[7]);	
+					writeEn=1'b1; 
+					//Go to next state now,while the value is being stored
+					state=WORK3;
+				end
+				
+				sbci:
+				begin
+					//Address should already be set from the last step
+					reg1input=reg1output-{readedByte1[11:8],readedByte1[3:0]}-SREG[0];
+					SREG[3]=(reg1output[7] & !readedByte1[11] & !reg1input[7])|(!reg1output[7] & readedByte1[11] & reg1input[7]);
+					SREG[0]= (!reg1output[7] & readedByte1[11])|(readedByte1[11] & reg1input[7])|(reg1input[7] & !reg1output[7]);	
+					writeEn=1'b1; 
+					//Go to next state now,while the value is being stored
+					state=WORK3;
+				end
+				
 			endcase			
 	
 		end
@@ -274,7 +334,7 @@ begin
 					SP=SP-14'd2; //Decrease the stack pointer by 2 (Its is a postdecrement)
 					state=FETCH; //Finished, go on with the execution					
 				end
-				
+					
 				ret:
 				begin
 					PC[15:8]=ram_outputData; //Set the MSB of the PC to the data from the stack
@@ -289,7 +349,24 @@ begin
 					SREG[1]=(reg1input==8'b0);					
 					PC=PC+16'd1;
 					state=FETCH; //Finished, go on with the execution	
-				end		
+				end	
+			
+				subi:
+				begin					
+					writeEn=1'b0;  //Disable writing	
+					SREG[2]=reg1input[7];					
+					SREG[1]=(reg1input==8'b0);	
+					state=FETCH; //Finished, go on with the execution				
+				end
+				
+				sbci:
+				begin					
+					writeEn=1'b0;  //Disable writing	
+					SREG[2]=reg1input[7];					
+					SREG[1]=(reg1input==8'b0) & SREG[1];	 //Keeps the old value unless the result is not 0
+					state=FETCH; //Finished, go on with the execution				
+				end
+					
 			
 			endcase			
 

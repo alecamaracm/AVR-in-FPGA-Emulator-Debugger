@@ -58,7 +58,6 @@ set_global_assignment -name QIP_FILE RAM.qip
 set_location_assignment PIN_Y2 -to clk
 set_location_assignment PIN_F17 -to stuck
 set_global_assignment -name VERILOG_FILE instuctionSelector.v
-set_global_assignment -name VERILOG_FILE my_params.v
 set_location_assignment PIN_G19 -to digitalIO[0]
 set_location_assignment PIN_F19 -to digitalIO[1]
 set_location_assignment PIN_E19 -to digitalIO[2]

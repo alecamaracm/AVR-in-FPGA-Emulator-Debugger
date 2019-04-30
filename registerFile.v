@@ -10,7 +10,7 @@ output [7:0]reg1output;
 input [4:0]reg2address;
 output [7:0]reg2output;
 
-reg [7:0]regs[4:0];
+reg [7:0]regs[32];
 
 assign reg1output=regs[reg1address];
 assign reg2output=regs[reg2address];
