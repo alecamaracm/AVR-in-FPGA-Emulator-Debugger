@@ -60,14 +60,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "digitalIO[14]",
-					"strict" : false
-				},
-				{
-					"name" : "digitalIO[15]",
-					"strict" : false
-				},
-				{
 					"name" : "stuck",
 					"strict" : false
 				},

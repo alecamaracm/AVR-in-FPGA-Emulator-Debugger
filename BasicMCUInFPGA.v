@@ -12,10 +12,10 @@ module BasicMCUInFPGA(input clk,
 							output [7:0]debug);
 
 assign stuck=(state==STUCK);
-//assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
+assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
 //assign digitalIO={readedByte1};		
 //assign digitalIO={8'd0,OPCODE};	
-assign digitalIO=SP;
+//assign digitalIO=readedByte1;
 //assign digitalIO={IOregs[62],reg1output};
 assign debug={OPCODE[3:0],state};	
 				
@@ -83,6 +83,16 @@ sbci=8'd10,
 brne=8'd11,
 nop=8'd12;	
 
+wire finalClock;
+wire slowclk;
+
+assign finalClock=clk;
+
+slowClock cloco(clk, slowclk);
+
+
+
+
 
 
 
@@ -91,19 +101,20 @@ instructionSelector selector(readedByte1,OPCODE);
 
 wire myClock;
 
-PushButton_Debouncer debouncer(clk,butt,myClock);
+PushButton_Debouncer debouncer(slowClock,butt,myClock);
 
 
-registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
+registerFile regFile(finalClock,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
 
-FLASH flash(PC,PC+1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
-//FLASH flash(0,1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+FLASH flash(PC,PC+1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+//FLASH flash(0,1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 
-RAM ram(ram_address,clk,ram_inputData,ram_WRen,ram_outputData);
+RAM ram(ram_address,finalClock,ram_inputData,ram_WRen,ram_outputData);
 
 
 
-always @(posedge clk)
+
+always @(posedge finalClock)
 begin
 
 	case (state)
@@ -138,15 +149,12 @@ begin
 					reg1input={readedByte1[11:8],readedByte1[3:0]};
 					writeEn=1'b1; 
 					//Go to next state now,while the value is being stored
-					state=WORK2;
 				end
 				
 				
 				jmp:
 				begin
 					PC={readedByte2[15:0]}; //Set new value for PC (We are not using the full 32 bit as the datasheet seys (we don't need it for the ATMega328P
-					//Shift 1 to the left because it works :D
-					state=FETCH; //FETCH new instruction
 				end
 				
 				
@@ -158,7 +166,6 @@ begin
 					ram_inputData=PC[15:8]; //Save the most significant digits to the first stack
 					ram_WRen=1'b1;
 					//Go to the next state by default, while the data1 is stored
-					state=WORK2;
 				end
 				
 				
@@ -167,7 +174,6 @@ begin
 					writeEn=1'b0; //Just in case, we sent writeEn to 0
 					reg1address=readedByte1[8:4]; //Request the data in the register file stored in the register we want
 					//Wait just in case the register file taskes 1 cycle to output the data
-					state=WORK2;
 				end
 				
 				ret:
@@ -184,25 +190,19 @@ begin
 				begin
 					SREG[7]=1'b0;  //Disable interrupt pin
 					PC=PC+16'd1;
-					state=FETCH;
 				end
 			
 				rjmp:
 				begin
 					PC=PC+({readedByte1[11],readedByte1[11],readedByte1[11],readedByte1[11],readedByte1[11:0]})+16'd1;  //Jump to the sign extended offset +1
-					state=FETCH;
 				end
 				
 				eor:
-				begin
-				
-					writeEn=1'b0;  //Make sure we are not writing
-					
+				begin				
+					writeEn=1'b0;  //Make sure we are not writing					
 					reg1address=readedByte2[8:4]; //Read r1
 					reg2address={readedByte1[9],readedByte1[3:0]}; //Read r2
-
 					//Wait just in case for the register file
-					state=WORK2;
 				end
 				
 				
@@ -210,40 +210,38 @@ begin
 				begin
 					writeEn=1'b0; //We are reading 
 					reg1address=5'd16+readedByte1[7:4];  //Register we are substracing from and to (16-32)
-					state=WORK2; //Wait until next cycle for the output
+					//Wait until next cycle for the output
 				end
 				
 				sbci:
 				begin
 					writeEn=1'b0; //We are reading 
 					reg1address=5'd16+readedByte1[7:4];  //Register we are substracing from and to (16-32)
-					state=WORK2; //Wait until next cycle for the output
+					//Wait until next cycle for the output
 				end
 				
 				brne:
 				begin
-					if(SREG[1]==1'b1) //If the zero flag is set do the jump	
+					if(SREG[1]==1'b0) //If the zero flag is NOT set (Not equal), branch
 					begin
 						PC=PC+({readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9],readedByte1[9:3]})+16'd1;  //Jump to the sign extended offset +1				
 					end
 					else
 					begin
 						PC=PC+16'd1;
-					end
-					state=FETCH;					
+					end				
 				end
 				
-				error:
+				nop:
 				begin
-					state=STUCK; //OPCODE not defined
-				end
+					
+				end	
 				
-				default:
-				begin
-					state=STUCK; //Uknown OPCODE
-				end
-				
-			endcase		
+			endcase
+	
+			if(OPCODE==error) state=STUCK;
+			else state=WORK2;
+			
 		end
 		
 		WORK2:
@@ -254,8 +252,7 @@ begin
 				begin					
 					//The value should be stored now,finish the instruction
 					writeEn=1'b0; //Disable the writeEnable for the register file
-					PC=PC+16'd1;
-					state=FETCH; //Go to the next instruction
+					PC=PC+16'd1;					
 				end	
 				
 				call:
@@ -264,8 +261,7 @@ begin
 					ram_address=SP-14'b1; //Store the next instruction into the address				
 					ram_inputData=PC[7:0]; //Save the LEAST significant digits to the first stack
 					ram_WRen=1'b1;
-					//Go to the next state by default, while the data2 is stored			
-					state=WORK3;	
+					//Go to the next state by default, while the data2 is stored				
 				end
 				
 				
@@ -274,9 +270,7 @@ begin
 					IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output
 					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101) SP[7:0]=reg1output;  //If the IO reg is 61, it is SPl
 					if({readedByte1[10:9],readedByte1[3:0]}==6'b111110) SP[15:8]=reg1output; //If the IO reg is 62, its is SPH
-					PC=PC+16'd1;				
-		
-					state=FETCH; //Go to the next instruction
+					PC=PC+16'd1;		
 				end
 				
 				ret:
@@ -284,7 +278,6 @@ begin
 					PC[7:0]=ram_outputData; //Set the MSB of the PC to the data from the stack
 					ram_address=SP-14'b1; //Read the LSB part
 					//Wait until the LSB part can be read
-					state=WORK3;
 				end	
 				
 				eor:
@@ -292,7 +285,6 @@ begin
 				   reg1input=reg1output^reg2output; //Do the xor operation and store it in the first register					
 					writeEn=1'b1; //Enable the writing
 					//Wait for the write
-					state=WORK3;
 				end
 							
 			
@@ -304,7 +296,6 @@ begin
 					SREG[0]= (!reg1output[7] & readedByte1[11])|(readedByte1[11] & reg1input[7])|(reg1input[7] & !reg1output[7]);	
 					writeEn=1'b1; 
 					//Go to next state now,while the value is being stored
-					state=WORK3;
 				end
 				
 				sbci:
@@ -315,11 +306,11 @@ begin
 					SREG[0]= (!reg1output[7] & readedByte1[11])|(readedByte1[11] & reg1input[7])|(reg1input[7] & !reg1output[7]);	
 					writeEn=1'b1; 
 					//Go to next state now,while the value is being stored
-					state=WORK3;
-				end
+				end				
 				
 			endcase			
-	
+			
+			state=WORK3;
 		end
 		
 		WORK3:
@@ -329,16 +320,15 @@ begin
 				call:
 				begin		
 					ram_WRen=1'd0;  //Stop writing to the ram
-					PC={readedByte1[8:4],readedByte1[0],readedByte2[15:0]};  //Go to the address in the instruction
-					
+					PC={readedByte1[8:4],readedByte1[0],readedByte2[15:0]};  //Go to the address in the instruction					
 					SP=SP-14'd2; //Decrease the stack pointer by 2 (Its is a postdecrement)
-					state=FETCH; //Finished, go on with the execution					
+					//Finished, go on with the execution					
 				end
 					
 				ret:
 				begin
 					PC[15:8]=ram_outputData; //Set the MSB of the PC to the data from the stack
-					state=FETCH; //Finished, go on with the execution				
+					//Finished, go on with the execution				
 				end
 				
 				eor:
@@ -348,7 +338,7 @@ begin
 					SREG[2]=reg1input[7];					
 					SREG[1]=(reg1input==8'b0);					
 					PC=PC+16'd1;
-					state=FETCH; //Finished, go on with the execution	
+					//Finished, go on with the execution	
 				end	
 			
 				subi:
@@ -356,7 +346,8 @@ begin
 					writeEn=1'b0;  //Disable writing	
 					SREG[2]=reg1input[7];					
 					SREG[1]=(reg1input==8'b0);	
-					state=FETCH; //Finished, go on with the execution				
+					PC=PC+16'd1;
+					//Finished, go on with the execution				
 				end
 				
 				sbci:
@@ -364,12 +355,19 @@ begin
 					writeEn=1'b0;  //Disable writing	
 					SREG[2]=reg1input[7];					
 					SREG[1]=(reg1input==8'b0) & SREG[1];	 //Keeps the old value unless the result is not 0
-					state=FETCH; //Finished, go on with the execution				
+					PC=PC+16'd1;
+					//Finished, go on with the execution				
+				end
+				
+				nop:
+				begin
+					PC=PC+16'd1;					
 				end
 					
 			
 			endcase			
-
+			
+			state=FETCH;
 		end
 		
 		STUCK:
@@ -381,8 +379,8 @@ begin
 	
 	SREG[4]=SREG[3]^SREG[2]; //Update the XOR in the SREG register
 	
-	/*IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
-	IOregs[62]=SP[15:8];*/
+	IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
+	IOregs[62]=SP[15:8];
 end
 
 endmodule
