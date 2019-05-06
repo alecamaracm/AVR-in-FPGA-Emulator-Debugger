@@ -1,5 +1,5 @@
 Flow report for BasicMCUInFPGA
-Tue Apr 30 20:22:16 2019
+Fri May 03 17:28:39 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Apr 30 20:22:16 2019       ;
+; Flow Status                        ; Successful - Fri May 03 17:28:39 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 451 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 428 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 152 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 152                                         ;
-; Total pins                         ; 27 / 529 ( 5 % )                            ;
+; Total logic elements               ; 732 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 698 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 285 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 285                                         ;
+; Total pins                         ; 31 / 529 ( 6 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 279,040 / 3,981,312 ( 7 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/30/2019 20:21:29 ;
+; Start date & time ; 05/03/2019 17:22:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; BasicMCUInFPGA      ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238177198224018.155667008914764        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238177198224018.155691853614516        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; FLASH_bb.v                             ; --            ; --          ; --         ;
@@ -85,6 +85,8 @@ agreement for further details.
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
@@ -94,12 +96,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:10     ; 1.0                     ; 4806 MB             ; 00:00:20                           ;
-; Fitter                    ; 00:00:15     ; 1.0                     ; 5742 MB             ; 00:00:24                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 4704 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.1                     ; 4872 MB             ; 00:00:02                           ;
-; MIF/HEX Update            ; 00:00:00     ; 1.0                     ; 4798 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:30     ; --                      ; --                  ; 00:00:50                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 4805 MB             ; 00:00:22                           ;
+; Fitter                    ; 00:00:15     ; 1.0                     ; 5753 MB             ; 00:00:24                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4703 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.1                     ; 4876 MB             ; 00:00:02                           ;
+; MIF/HEX Update            ; 00:00:01     ; 1.0                     ; 4800 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:33     ; --                      ; --                  ; 00:00:52                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

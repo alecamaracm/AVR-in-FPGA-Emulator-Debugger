@@ -1,10 +1,11 @@
 
-State Machine - |BasicMCUInFPGA|state
-Name state.FETCH3 state.FETCH2 state.STUCK state.WORK3 state.WORK2 state.WORK1 state.FETCH 
-state.FETCH 0 0 0 0 0 0 0 
-state.WORK1 0 0 0 0 0 1 1 
-state.WORK2 0 0 0 0 1 0 1 
-state.WORK3 0 0 0 1 0 0 1 
-state.STUCK 0 0 1 0 0 0 1 
-state.FETCH2 0 1 0 0 0 0 1 
-state.FETCH3 1 0 0 0 0 0 1 
+State Machine - |BasicMCUInFPGA|progDetect
+Name progDetect.0000 progDetect.0010 progDetect.0001 
+progDetect.0000 0 0 0 
+progDetect.0001 1 0 1 
+progDetect.0010 1 1 0 
+
+State Machine - |BasicMCUInFPGA|UART:prog|state
+Name state.data 
+state.waiting 0 
+state.data 1 

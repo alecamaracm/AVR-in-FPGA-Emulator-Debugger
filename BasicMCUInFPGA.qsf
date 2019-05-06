@@ -48,16 +48,11 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name VERILOG_FILE BasicMCUInFPGA.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE registerFile.v
-set_global_assignment -name QIP_FILE Flash.qip
-set_global_assignment -name QIP_FILE RAM.qip
 set_location_assignment PIN_Y2 -to clk
 set_location_assignment PIN_F17 -to stuck
-set_global_assignment -name VERILOG_FILE instuctionSelector.v
 set_location_assignment PIN_G19 -to digitalIO[0]
 set_location_assignment PIN_F19 -to digitalIO[1]
 set_location_assignment PIN_E19 -to digitalIO[2]
@@ -71,11 +66,9 @@ set_location_assignment PIN_G17 -to digitalIO[9]
 set_location_assignment PIN_J15 -to digitalIO[10]
 set_location_assignment PIN_H16 -to digitalIO[11]
 set_location_assignment PIN_J16 -to digitalIO[12]
-set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_location_assignment PIN_F15 -to digitalIO[14]
 set_location_assignment PIN_H17 -to digitalIO[13]
 set_location_assignment PIN_G15 -to digitalIO[15]
-set_global_assignment -name VERILOG_FILE debouncer.v
 set_location_assignment PIN_M23 -to butt
 set_location_assignment PIN_E22 -to debug[1]
 set_location_assignment PIN_E25 -to debug[2]
@@ -85,5 +78,19 @@ set_location_assignment PIN_G20 -to debug[5]
 set_location_assignment PIN_G22 -to debug[6]
 set_location_assignment PIN_G21 -to debug[7]
 set_location_assignment PIN_H21 -to debug[4]
+set_location_assignment PIN_G12 -to RXD
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE BasicMCUInFPGA.v
+set_global_assignment -name VERILOG_FILE registerFile.v
+set_global_assignment -name QIP_FILE Flash.qip
+set_global_assignment -name QIP_FILE RAM.qip
+set_global_assignment -name VERILOG_FILE instuctionSelector.v
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name VERILOG_FILE debouncer.v
 set_global_assignment -name VERILOG_FILE ClockDownscaler.v
+set_global_assignment -name VERILOG_FILE UART.v
+set_location_assignment PIN_M21 -to buttProg
+set_location_assignment PIN_R24 -to reset
+set_location_assignment PIN_H15 -to progMode
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

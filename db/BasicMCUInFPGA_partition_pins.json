@@ -92,7 +92,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "progMode",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "RXD",
 					"strict" : false
 				}
 			]

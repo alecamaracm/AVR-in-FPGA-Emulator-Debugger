@@ -9,13 +9,22 @@ module BasicMCUInFPGA(input clk,
 							output [15:0]digitalIO,
 							output stuck,
 							input butt,
-							output [7:0]debug);
+							output [7:0]debug,
+							input RXD,
+							input buttProg,
+							input reset,
+							output progMode);
 
 assign stuck=(state==STUCK);
-assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
-//assign digitalIO={readedByte1};		
+
+assign progMode=programmingMode;
+
+assign digitalIO=(programmingMode==1'b1)?8'b10101010:{3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
+
+//assign digitalIO={flash_out_1,flash_out_2};
+//assign digitalIO=(buttProg==1'b1)?{flash_out_1}:nextByteProgCounter;
 //assign digitalIO={8'd0,OPCODE};	
-//assign digitalIO=readedByte1;
+//assign digitalIO=readdata;
 //assign digitalIO={IOregs[62],reg1output};
 assign debug={OPCODE[3:0],state};	
 				
@@ -40,14 +49,14 @@ reg [7:0]IOregs[64];
 
 
 //Flash
-wire [13:0]flash_addr_1;
-wire [13:0]flash_addr_2;
+reg [13:0]flash_addr_1;
+reg [13:0]flash_addr_2;
 
-wire [15:0]flash_dataIN_1;
-wire [15:0]flash_dataIN_2;
-wire flash_WRen_1;
+reg [15:0]flash_dataIN_1;
+reg [15:0]flash_dataIN_2;
+reg flash_WRen_1;
 wire flash_WRen_2;
-assign flash_WRen_1=0;
+
 assign flash_WRen_2=0;
 
 wire [15:0]flash_out_1;
@@ -92,8 +101,9 @@ slowClock cloco(clk, slowclk);
 
 
 
-
-
+wire [7:0]readdata;
+wire dataCount;
+UART prog(readdata,dataCount,RXD,clk);
 
 
 instructionSelector selector(readedByte1,OPCODE);
@@ -106,18 +116,22 @@ PushButton_Debouncer debouncer(slowClock,butt,myClock);
 
 registerFile regFile(finalClock,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output);
 
-FLASH flash(PC,PC+1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
-//FLASH flash(0,1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+FLASH flash((programmingMode==1'b0)?PC:flash_addr_1,PC+1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+//FLASH flash(PC,PC+1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+
 
 RAM ram(ram_address,finalClock,ram_inputData,ram_WRen,ram_outputData);
 
+reg programmingMode;
 
 
 
 always @(posedge finalClock)
 begin
-
-	case (state)
+		
+	if(programmingMode==1'b0)
+	begin
+		case (state)
 				
 		FETCH:
 		begin
@@ -381,6 +395,89 @@ begin
 	
 	IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
 	IOregs[62]=SP[15:8];
+	
+	flash_WRen_1=0;
+	case(progDetect)
+	4'd0:
+	begin
+		if(readdata==8'd169) progDetect=4'd1;
+	end
+	4'd1:
+	begin
+		if(readdata==8'd68) progDetect=4'd2;
+	end
+	4'd2:
+	begin
+		if(readdata==8'd69) 
+		begin
+			programmingMode=1'b1;
+			lastRXstate=dataCount;
+			nextByteProgCounter=0;
+			timeToExitProgramming=40'd5000000;
+			progDetect=4'd0;			
+		end
+	end
+	default:
+	begin
+		progDetect=4'd0;
+	end
+	endcase
+	
+	
+	end
+	else 
+	begin
+			
+		if(lastRXstate!=dataCount)
+		begin
+			timeToExitProgramming=40'd5000000;
+			if(nextByteProgCounter%2==0)
+			begin
+				flash_WRen_1=0;
+				flash_dataIN_1[15:8]=readdata;
+				flash_addr_1=nextByteProgCounter/2;
+			end
+			else
+			begin
+				flash_WRen_1=1;
+				flash_dataIN_1[7:0]=readdata;
+
+			end				
+			
+			nextByteProgCounter=nextByteProgCounter+1;
+			lastRXstate=dataCount;							
+		end
+		else 
+		begin
+			timeToExitProgramming=timeToExitProgramming-1;
+			if(timeToExitProgramming<=0)
+			begin
+				 programmingMode=0;
+				flash_WRen_1=0;
+			end
+		end
+		
+		
+		PC=0;
+		SP=0;
+		SREG=0;
+		state=FETCH;
+		IOregs[8'd5]=0;
+		IOregs[8'd11]=0;
+	end
+	
 end
+
+
+reg [49:0]nextByteProgCounter;
+reg lastRXstate;
+
+reg [3:0]progDetect;
+
+
+reg [39:0]timeToExitProgramming;
+
+
+
 
 endmodule

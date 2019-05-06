@@ -5,8 +5,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,6 +32,13 @@ namespace FPGAUploader
         {
             selectedFile.Text = Settings.Default.selectedFile;
             outputFile.Text = Settings.Default.outputFile;
+          
+
+            port.BaudRate = 9600;
+            port.Parity = Parity.None;
+            port.StopBits = StopBits.One;
+            port.Open();
+
             UpdateFileHook();
         }
 
@@ -48,13 +57,16 @@ namespace FPGAUploader
 
         private void OnChanged(object sender, FileSystemEventArgs e)
         {
+            
+
             if ((DateTime.Now - timeoutUntil).TotalMilliseconds < 0) return;
 
-            timeoutUntil = DateTime.Now.AddSeconds(45);
+            timeoutUntil = DateTime.Now.AddSeconds(10);
+            Thread.Sleep(2500);
 
             Console.WriteLine("File changed!");
             lines.Clear();
-            using (StreamReader reader = new StreamReader(selectedFile.Text))
+            using (StreamReader reader = new StreamReader(File.OpenRead(selectedFile.Text)))
             {
                 while (reader.EndOfStream == false) lines.Add(reader.ReadLine());
             }
@@ -78,6 +90,8 @@ namespace FPGAUploader
             {
                 foreach (string line in lines) writer.WriteLine(line);
             }
+
+            if (checkBox1.Checked == true) Programm();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +116,70 @@ namespace FPGAUploader
                 Settings.Default.Save();
                 UpdateFileHook();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            /*  for(int i=0;i<300;i++)
+              {
+                  byte[] btt = new byte[] { (byte)(i%255) };
+                  port.Write(btt, 0, btt.Length);
+
+                  Thread.Sleep(100);
+              }*/
+
+            byte[] btt = new byte[] { (byte)( 255) };
+            port.Write(btt, 0, btt.Length);
+        }
+
+        SerialPort port = new SerialPort("COM5");
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Programm();
+//
+        }
+
+        private void Programm()
+        {
+            List<byte> toSend = new List<byte>();
+
+            List<string> lines2 = new List<string>();
+
+            using (StreamReader reader = new StreamReader(selectedFile.Text))
+            {
+                while (reader.EndOfStream == false) lines2.Add(reader.ReadLine());
+            }
+
+            for (int i = 0; i < lines2.Count; i++)
+            {
+                int start = int.Parse(lines2[i].Substring(3, 4), System.Globalization.NumberStyles.HexNumber);
+                lines2[i] = lines2[i].Substring(1, 2) + (start / 2).ToString("X4") + lines2[i].Substring(7, lines2[i].Length - 7 - 2);
+                for (int j = 8; j < lines2[i].Length; j += 2)
+                {
+                    toSend.Add(byte.Parse(lines2[i].ElementAt(j) + "" + lines2[i].ElementAt(j + 1), System.Globalization.NumberStyles.HexNumber));
+                }
+            }
+
+
+            //Send handshake (Programming request)
+            byte[] btt = new byte[] { 169, 68, 69 };
+            port.Write(btt, 0, btt.Length);
+
+            //Thread.Sleep(250);
+            for (int i = 0; i < toSend.Count; i++)
+            {
+                byte[] btt2 = new byte[] { toSend[i] };
+                port.Write(btt2, 0, btt2.Length);
+                Thread.Sleep(10);
+            }
+
+            //        port.Write(toSend.ToArray(), 0, toSend.Count);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            OnChanged(null, null);
         }
     }
 }
