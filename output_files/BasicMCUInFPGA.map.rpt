@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BasicMCUInFPGA
-Fri May 03 17:22:27 2019
+Wed May 08 21:57:24 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -18,29 +18,21 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
  10. State Machine - |BasicMCUInFPGA|progDetect
  11. State Machine - |BasicMCUInFPGA|UART:prog|state
  12. Registers Removed During Synthesis
- 13. Removed Registers Triggering Further Register Optimizations
- 14. General Register Statistics
- 15. Registers Added for RAM Pass-Through Logic
- 16. Registers Packed Into Inferred Megafunctions
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
- 19. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
- 20. Source assignments for registerFile:regFile|altsyncram:regs_rtl_0|altsyncram_3pd1:auto_generated
- 21. Source assignments for registerFile:regFile|altsyncram:regs_rtl_1|altsyncram_3pd1:auto_generated
- 22. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
- 23. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
- 24. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
- 25. Parameter Settings for Inferred Entity Instance: registerFile:regFile|altsyncram:regs_rtl_0
- 26. Parameter Settings for Inferred Entity Instance: registerFile:regFile|altsyncram:regs_rtl_1
- 27. altsyncram Parameter Settings by Entity Instance
- 28. Port Connectivity Checks: "FLASH:flash"
- 29. Port Connectivity Checks: "registerFile:regFile"
- 30. Port Connectivity Checks: "PushButton_Debouncer:debouncer"
- 31. Port Connectivity Checks: "slowClock:cloco"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
- 35. Analysis & Synthesis Suppressed Messages
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated
+ 16. Source assignments for RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated
+ 17. Parameter Settings for User Entity Instance: Top-level Entity: |BasicMCUInFPGA
+ 18. Parameter Settings for User Entity Instance: FLASH:flash|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: RAM:ram|altsyncram:altsyncram_component
+ 20. altsyncram Parameter Settings by Entity Instance
+ 21. Port Connectivity Checks: "FLASH:flash"
+ 22. Port Connectivity Checks: "registerFile:regFile"
+ 23. Port Connectivity Checks: "PushButton_Debouncer:debouncer"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -67,18 +59,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 03 17:22:27 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed May 08 21:57:24 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 781                                         ;
-;     Total combinational functions  ; 698                                         ;
-;     Dedicated logic registers      ; 285                                         ;
-; Total registers                    ; 285                                         ;
+; Total logic elements               ; 3,274                                       ;
+;     Total combinational functions  ; 2,755                                       ;
+;     Dedicated logic registers      ; 1,074                                       ;
+; Total registers                    ; 1074                                        ;
 ; Total pins                         ; 31                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 279,040                                     ;
+; Total memory bits                  ; 278,528                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
@@ -183,8 +175,8 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -216,41 +208,40 @@ agreement for further details.
 ; db/decode_jsa.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/decode_jsa.tdf      ;         ;
 ; db/mux_iob.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/mux_iob.tdf         ;         ;
 ; db/altsyncram_28g1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf ;         ;
-; db/altsyncram_3pd1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_3pd1.tdf ;         ;
 +----------------------------------+-----------------+----------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 781       ;
-;                                             ;           ;
-; Total combinational functions               ; 698       ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 303       ;
-;     -- 3 input functions                    ; 196       ;
-;     -- <=2 input functions                  ; 199       ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 509       ;
-;     -- arithmetic mode                      ; 189       ;
-;                                             ;           ;
-; Total registers                             ; 285       ;
-;     -- Dedicated logic registers            ; 285       ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 31        ;
-; Total memory bits                           ; 279040    ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 341       ;
-; Total fan-out                               ; 4418      ;
-; Average fan-out                             ; 4.01      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                           ;
++---------------------------------------------+-------------------------+
+; Resource                                    ; Usage                   ;
++---------------------------------------------+-------------------------+
+; Estimated Total logic elements              ; 3,274                   ;
+;                                             ;                         ;
+; Total combinational functions               ; 2755                    ;
+; Logic element usage by number of LUT inputs ;                         ;
+;     -- 4 input functions                    ; 1884                    ;
+;     -- 3 input functions                    ; 522                     ;
+;     -- <=2 input functions                  ; 349                     ;
+;                                             ;                         ;
+; Logic elements by mode                      ;                         ;
+;     -- normal mode                          ; 2430                    ;
+;     -- arithmetic mode                      ; 325                     ;
+;                                             ;                         ;
+; Total registers                             ; 1074                    ;
+;     -- Dedicated logic registers            ; 1074                    ;
+;     -- I/O registers                        ; 0                       ;
+;                                             ;                         ;
+; I/O pins                                    ; 31                      ;
+; Total memory bits                           ; 278528                  ;
+;                                             ;                         ;
+; Embedded Multiplier 9-bit elements          ; 0                       ;
+;                                             ;                         ;
+; Maximum fan-out node                        ; slowClock:cloco|clk_out ;
+; Maximum fan-out                             ; 734                     ;
+; Total fan-out                               ; 14141                   ;
+; Average fan-out                             ; 3.60                    ;
++---------------------------------------------+-------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -258,7 +249,7 @@ agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |BasicMCUInFPGA                           ; 698 (533)           ; 285 (203)                 ; 279040      ; 0            ; 0       ; 0         ; 31   ; 0            ; |BasicMCUInFPGA                                                                                               ; BasicMCUInFPGA      ; work         ;
+; |BasicMCUInFPGA                           ; 2755 (1806)         ; 1074 (733)                ; 278528      ; 0            ; 0       ; 0         ; 31   ; 0            ; |BasicMCUInFPGA                                                                                               ; BasicMCUInFPGA      ; work         ;
 ;    |FLASH:flash|                          ; 34 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash                                                                                   ; FLASH               ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 34 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component                                                   ; altsyncram          ; work         ;
 ;          |altsyncram_c1k2:auto_generated| ; 34 (0)              ; 2 (2)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated                    ; altsyncram_c1k2     ; work         ;
@@ -269,26 +260,21 @@ agreement for further details.
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component                                                       ; altsyncram          ; work         ;
 ;          |altsyncram_28g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated                        ; altsyncram_28g1     ; work         ;
 ;    |UART:prog|                            ; 80 (80)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|UART:prog                                                                                     ; UART                ; work         ;
-;    |instructionSelector:selector|         ; 35 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                                  ; instructionSelector ; work         ;
-;    |registerFile:regFile|                 ; 16 (16)             ; 38 (38)                   ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile                                                                          ; registerFile        ; work         ;
-;       |altsyncram:regs_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile|altsyncram:regs_rtl_0                                                    ; altsyncram          ; work         ;
-;          |altsyncram_3pd1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile|altsyncram:regs_rtl_0|altsyncram_3pd1:auto_generated                     ; altsyncram_3pd1     ; work         ;
-;       |altsyncram:regs_rtl_1|             ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile|altsyncram:regs_rtl_1                                                    ; altsyncram          ; work         ;
-;          |altsyncram_3pd1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 256         ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile|altsyncram:regs_rtl_1|altsyncram_3pd1:auto_generated                     ; altsyncram_3pd1     ; work         ;
+;    |instructionSelector:selector|         ; 99 (99)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                                  ; instructionSelector ; work         ;
+;    |registerFile:regFile|                 ; 674 (674)           ; 256 (256)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile                                                                          ; registerFile        ; work         ;
+;    |slowClock:cloco|                      ; 62 (62)             ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|slowClock:cloco                                                                               ; slowClock           ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                 ;
-+---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
-; Name                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
-+---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
-; FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port   ; 16384        ; 16           ; 16384        ; 16           ; 262144 ; Flash.hex ;
-; RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|ALTSYNCRAM     ; AUTO ; Single Port      ; 2048         ; 8            ; --           ; --           ; 16384  ; None      ;
-; registerFile:regFile|altsyncram:regs_rtl_0|altsyncram_3pd1:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; 32           ; 8            ; 32           ; 8            ; 256    ; None      ;
-; registerFile:regFile|altsyncram:regs_rtl_1|altsyncram_3pd1:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; 32           ; 8            ; 32           ; 8            ; 256    ; None      ;
-+---------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+-----------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                               ;
++---------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+-----------+
+; Name                                                                                  ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF       ;
++---------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+-----------+
+; FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 16384        ; 16           ; 16384        ; 16           ; 262144 ; Flash.hex ;
+; RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated|ALTSYNCRAM     ; AUTO ; Single Port    ; 2048         ; 8            ; --           ; --           ; 16384  ; None      ;
++---------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+--------+-----------+
 
 
 +---------------------------------------------------------------------------------------------------------------+
@@ -329,25 +315,16 @@ Encoding Type:  One-Hot
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
+; reg2input[4..7]                        ; Stuck at GND due to stuck port data_in ;
 ; state[3]                               ; Stuck at GND due to stuck port data_in ;
 ; progDetect~7                           ; Lost fanout                            ;
 ; progDetect~8                           ; Lost fanout                            ;
 ; UART:prog|state~5                      ; Lost fanout                            ;
 ; UART:prog|state~6                      ; Lost fanout                            ;
 ; UART:prog|state~7                      ; Lost fanout                            ;
-; SP[11..15]                             ; Lost fanout                            ;
 ; nextByteProgCounter[15..49]            ; Lost fanout                            ;
-; Total Number of Removed Registers = 46 ;                                        ;
+; Total Number of Removed Registers = 45 ;                                        ;
 +----------------------------------------+----------------------------------------+
-
-
-+-----------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                 ;
-+---------------+--------------------+----------------------------------------+
-; Register name ; Reason for Removal ; Registers Removed due to This Register ;
-+---------------+--------------------+----------------------------------------+
-; SP[15]        ; Lost Fanouts       ; SP[14], SP[13], SP[12], SP[11]         ;
-+---------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -355,94 +332,108 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 285   ;
-; Number of registers using Synchronous Clear  ; 56    ;
-; Number of registers using Synchronous Load   ; 22    ;
+; Total registers                              ; 1074  ;
+; Number of registers using Synchronous Clear  ; 44    ;
+; Number of registers using Synchronous Load   ; 35    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 217   ;
+; Number of registers using Clock Enable       ; 980   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic                                   ;
-+--------------------------------------------+---------------------------------+
-; Register Name                              ; RAM Name                        ;
-+--------------------------------------------+---------------------------------+
-; registerFile:regFile|regs_rtl_0_bypass[0]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[1]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[2]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[3]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[4]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[5]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[6]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[7]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[8]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[9]  ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[10] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[11] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[12] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[13] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[14] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[15] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[16] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[17] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_0_bypass[18] ; registerFile:regFile|regs_rtl_0 ;
-; registerFile:regFile|regs_rtl_1_bypass[0]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[1]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[2]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[3]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[4]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[5]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[6]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[7]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[8]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[9]  ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[10] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[11] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[12] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[13] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[14] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[15] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[16] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[17] ; registerFile:regFile|regs_rtl_1 ;
-; registerFile:regFile|regs_rtl_1_bypass[18] ; registerFile:regFile|regs_rtl_1 ;
-+--------------------------------------------+---------------------------------+
-
-
-+------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions               ;
-+-------------------+---------------------------------+------+
-; Register Name     ; Megafunction                    ; Type ;
-+-------------------+---------------------------------+------+
-; reg2address[0..4] ; registerFile:regFile|regs_rtl_1 ; RAM  ;
-+-------------------+---------------------------------+------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|UART:prog|dataBitCounter[4]            ;
-; 3:1                ; 50 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |BasicMCUInFPGA|nextByteProgCounter[18]                ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[5][4]                           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[11][7]                          ;
-; 4:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |BasicMCUInFPGA|timeToExitProgramming[25]              ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |BasicMCUInFPGA|UART:prog|timeForNextBit[4]            ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 8 LEs                ; 40 LEs                 ; Yes        ; |BasicMCUInFPGA|ram_inputData[2]                       ;
-; 12:1               ; 7 bits    ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[7]                                  ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |BasicMCUInFPGA|SP[8]                                  ;
-; 24:1               ; 10 bits   ; 160 LEs       ; 20 LEs               ; 140 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[10]                        ;
-; 24:1               ; 8 bits    ; 128 LEs       ; 16 LEs               ; 112 LEs                ; Yes        ; |BasicMCUInFPGA|reg1input[4]                           ;
-; 24:1               ; 8 bits    ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[14]                                 ;
-; 24:1               ; 7 bits    ; 112 LEs       ; 28 LEs               ; 84 LEs                 ; Yes        ; |BasicMCUInFPGA|PC[4]                                  ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; No         ; |BasicMCUInFPGA|Selector21                             ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |BasicMCUInFPGA|progDetect                             ;
-; 11:1               ; 2 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE[1] ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE[2] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|UART:prog|dataBitCounter[0]             ;
+; 3:1                ; 50 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |BasicMCUInFPGA|nextByteProgCounter[31]                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[0][7]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[0][0]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][7]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][0]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[2][4]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[2][3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][5]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][0]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][7]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][2]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][7]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][2]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[6][5]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[6][2]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][5]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[8][5]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[8][1]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[9][5]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[9][2]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][0]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[11][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[11][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[13][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[13][1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[15][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[15][1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[16][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[16][0]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][6]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[21][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[21][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[23][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[23][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][1]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[26][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[26][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][6]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][3]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[28][7]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[28][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[30][5]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[30][2]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][4]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][2]        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[5][5]                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[11][0]                           ;
+; 4:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |BasicMCUInFPGA|timeToExitProgramming[33]               ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |BasicMCUInFPGA|UART:prog|timeForNextBit[11]            ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |BasicMCUInFPGA|state[3]                                ;
+; 66:1               ; 16 bits   ; 704 LEs       ; 16 LEs               ; 688 LEs                ; Yes        ; |BasicMCUInFPGA|resultWord[8]                           ;
+; 82:1               ; 8 bits    ; 432 LEs       ; 16 LEs               ; 416 LEs                ; Yes        ; |BasicMCUInFPGA|ram_inputData[4]                        ;
+; 74:1               ; 3 bits    ; 147 LEs       ; 9 LEs                ; 138 LEs                ; Yes        ; |BasicMCUInFPGA|reg2address[1]                          ;
+; 52:1               ; 10 bits   ; 340 LEs       ; 40 LEs               ; 300 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[8]                          ;
+; 68:1               ; 7 bits    ; 315 LEs       ; 28 LEs               ; 287 LEs                ; Yes        ; |BasicMCUInFPGA|PC[3]                                   ;
+; 69:1               ; 8 bits    ; 368 LEs       ; 32 LEs               ; 336 LEs                ; Yes        ; |BasicMCUInFPGA|PC[10]                                  ;
+; 146:1              ; 7 bits    ; 679 LEs       ; 378 LEs              ; 301 LEs                ; Yes        ; |BasicMCUInFPGA|reg1input[7]                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE     ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux7               ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux14              ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE.nop ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |BasicMCUInFPGA|progDetect                              ;
+; 37:1               ; 5 bits    ; 120 LEs       ; 20 LEs               ; 100 LEs                ; No         ; |BasicMCUInFPGA|Mux51                                   ;
+; 40:1               ; 7 bits    ; 182 LEs       ; 28 LEs               ; 154 LEs                ; No         ; |BasicMCUInFPGA|Mux58                                   ;
+; 40:1               ; 3 bits    ; 78 LEs        ; 12 LEs               ; 66 LEs                 ; No         ; |BasicMCUInFPGA|Mux54                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -461,24 +452,6 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+---------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                               ;
 +---------------------------------+--------------------+------+---------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------+
-; Source assignments for registerFile:regFile|altsyncram:regs_rtl_0|altsyncram_3pd1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------+
-; Assignment                      ; Value              ; From ; To                                 ;
-+---------------------------------+--------------------+------+------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
-+---------------------------------+--------------------+------+------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------+
-; Source assignments for registerFile:regFile|altsyncram:regs_rtl_1|altsyncram_3pd1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------+
-; Assignment                      ; Value              ; From ; To                                 ;
-+---------------------------------+--------------------+------+------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
-+---------------------------------+--------------------+------+------------------------------------+
 
 
 +--------------------------------------------------------------------------------+
@@ -619,134 +592,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: registerFile:regFile|altsyncram:regs_rtl_0 ;
-+------------------------------------+----------------------+---------------------------------+
-; Parameter Name                     ; Value                ; Type                            ;
-+------------------------------------+----------------------+---------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                         ;
-; WIDTH_A                            ; 8                    ; Untyped                         ;
-; WIDTHAD_A                          ; 5                    ; Untyped                         ;
-; NUMWORDS_A                         ; 32                   ; Untyped                         ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                         ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WIDTH_B                            ; 8                    ; Untyped                         ;
-; WIDTHAD_B                          ; 5                    ; Untyped                         ;
-; NUMWORDS_B                         ; 32                   ; Untyped                         ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                         ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                         ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
-; BYTE_SIZE                          ; 8                    ; Untyped                         ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; INIT_FILE                          ; UNUSED               ; Untyped                         ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                         ;
-; CBXI_PARAMETER                     ; altsyncram_3pd1      ; Untyped                         ;
-+------------------------------------+----------------------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: registerFile:regFile|altsyncram:regs_rtl_1 ;
-+------------------------------------+----------------------+---------------------------------+
-; Parameter Name                     ; Value                ; Type                            ;
-+------------------------------------+----------------------+---------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                         ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                      ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                    ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                    ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                  ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                         ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                         ;
-; WIDTH_A                            ; 8                    ; Untyped                         ;
-; WIDTHAD_A                          ; 5                    ; Untyped                         ;
-; NUMWORDS_A                         ; 32                   ; Untyped                         ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                         ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                         ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                         ;
-; WIDTH_B                            ; 8                    ; Untyped                         ;
-; WIDTHAD_B                          ; 5                    ; Untyped                         ;
-; NUMWORDS_B                         ; 32                   ; Untyped                         ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                         ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                         ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                         ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                         ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                         ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                         ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                         ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                         ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                         ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                         ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                         ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                         ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                         ;
-; BYTE_SIZE                          ; 8                    ; Untyped                         ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                         ;
-; INIT_FILE                          ; UNUSED               ; Untyped                         ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                         ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                         ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                         ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                         ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                         ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                         ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                         ;
-; CBXI_PARAMETER                     ; altsyncram_3pd1      ; Untyped                         ;
-+------------------------------------+----------------------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-----------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                        ;
 +-------------------------------------------+---------------------------------------------+
 ; Name                                      ; Value                                       ;
 +-------------------------------------------+---------------------------------------------+
-; Number of entity instances                ; 4                                           ;
+; Number of entity instances                ; 2                                           ;
 ; Entity Instance                           ; FLASH:flash|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                             ;
 ;     -- WIDTH_A                            ; 16                                          ;
@@ -769,28 +620,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
-; Entity Instance                           ; registerFile:regFile|altsyncram:regs_rtl_0  ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                   ;
-;     -- WIDTH_A                            ; 8                                           ;
-;     -- NUMWORDS_A                         ; 32                                          ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                ;
-;     -- WIDTH_B                            ; 8                                           ;
-;     -- NUMWORDS_B                         ; 32                                          ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                      ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
-; Entity Instance                           ; registerFile:regFile|altsyncram:regs_rtl_1  ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                   ;
-;     -- WIDTH_A                            ; 8                                           ;
-;     -- NUMWORDS_A                         ; 32                                          ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                ;
-;     -- WIDTH_B                            ; 8                                           ;
-;     -- NUMWORDS_B                         ; 32                                          ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                      ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
 +-------------------------------------------+---------------------------------------------+
 
 
@@ -805,13 +634,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "registerFile:regFile"                                                                                                                                                                  ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port        ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reg2address ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (5 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "registerFile:regFile"                                                                                                                                                                   ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                                                          ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reg2address ; Input  ; Warning  ; Input port expression (8 bits) is wider than the input port (5 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; bit16Debug  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                              ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -823,43 +653,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "slowClock:cloco"                                                                       ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; clk_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 31                          ;
-; cycloneiii_ff         ; 285                         ;
-;     ENA               ; 159                         ;
+; cycloneiii_ff         ; 1074                        ;
+;     ENA               ; 909                         ;
 ;     ENA SCLR          ; 38                          ;
-;     ENA SCLR SLD      ; 10                          ;
-;     ENA SLD           ; 10                          ;
-;     SCLR              ; 8                           ;
+;     ENA SLD           ; 33                          ;
+;     SCLR              ; 6                           ;
 ;     SLD               ; 2                           ;
-;     plain             ; 58                          ;
-; cycloneiii_lcell_comb ; 699                         ;
-;     arith             ; 189                         ;
-;         2 data inputs ; 151                         ;
-;         3 data inputs ; 38                          ;
-;     normal            ; 510                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 32                          ;
-;         3 data inputs ; 158                         ;
-;         4 data inputs ; 303                         ;
-; cycloneiii_ram_block  ; 56                          ;
+;     plain             ; 86                          ;
+; cycloneiii_lcell_comb ; 2757                        ;
+;     arith             ; 325                         ;
+;         2 data inputs ; 259                         ;
+;         3 data inputs ; 66                          ;
+;     normal            ; 2432                        ;
+;         0 data inputs ; 5                           ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 67                          ;
+;         3 data inputs ; 456                         ;
+;         4 data inputs ; 1884                        ;
+; cycloneiii_ram_block  ; 40                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.30                       ;
-; Average LUT depth     ; 5.18                        ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 8.55                        ;
 +-----------------------+-----------------------------+
 
 
@@ -868,7 +688,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:13     ;
 +----------------+--------------+
 
 
@@ -878,7 +698,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Fri May 03 17:22:16 2019
+    Info: Processing started: Wed May 08 21:57:01 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BasicMCUInFPGA -c BasicMCUInFPGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -899,27 +719,51 @@ Info (12021): Found 1 design units, including 1 entities, in source file clockdo
     Info (12023): Found entity 1: slowClock File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/ClockDownscaler.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file uart.v
     Info (12023): Found entity 1: UART File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at BasicMCUInFPGA.v(114): created implicit net for "slowClock" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 114
+Warning (10236): Verilog HDL Implicit Net warning at BasicMCUInFPGA.v(167): created implicit net for "slowClock" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 167
 Info (12127): Elaborating entity "BasicMCUInFPGA" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(22): truncated value with size 17 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 22
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(178): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 178
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(197): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 197
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(275): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 275
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(293): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 293
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(337): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 337
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(438): truncated value with size 50 to match size of target (14) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 438
-Info (12128): Elaborating entity "slowClock" for hierarchy "slowClock:cloco" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 100
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(237): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 237
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(253): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 253
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(255): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 255
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(347): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 347
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(394): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 394
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(396): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 396
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(435): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 435
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(441): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 441
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(461): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 461
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(462): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 462
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(476): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 476
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(491): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 491
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(492): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 492
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(548): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 548
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(577): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 577
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(651): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 651
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(664): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 664
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(686): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 686
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(747): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 747
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(766): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 766
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(772): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 772
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(778): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 778
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(783): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 783
+Warning (10272): Verilog HDL Case Statement warning at BasicMCUInFPGA.v(716): case item expression covers a value already covered by a previous case item File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 716
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(800): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 800
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(878): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 878
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(939): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 939
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(979): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 979
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1010): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1010
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1096): truncated value with size 50 to match size of target (14) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1096
+Warning (10034): Output port "progMode" at BasicMCUInFPGA.v(16) has no driver File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 16
+Info (12128): Elaborating entity "slowClock" for hierarchy "slowClock:cloco" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 153
 Warning (10230): Verilog HDL assignment warning at ClockDownscaler.v(7): truncated value with size 40 to match size of target (1) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/ClockDownscaler.v Line: 7
-Info (12128): Elaborating entity "UART" for hierarchy "UART:prog" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 106
+Info (12128): Elaborating entity "UART" for hierarchy "UART:prog" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 159
 Warning (10230): Verilog HDL assignment warning at UART.v(38): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 38
 Warning (10230): Verilog HDL assignment warning at UART.v(50): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 50
 Warning (10230): Verilog HDL assignment warning at UART.v(52): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 52
 Warning (10230): Verilog HDL assignment warning at UART.v(61): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 61
 Warning (10230): Verilog HDL assignment warning at UART.v(62): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 62
-Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 109
-Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 114
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 117
-Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 119
+Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 162
+Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 167
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 172
+Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 175
 Info (12128): Elaborating entity "altsyncram" for hierarchy "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12130): Elaborated megafunction instantiation "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12133): Instantiated megafunction "FLASH:flash|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
@@ -959,7 +803,7 @@ Info (12128): Elaborating entity "decode_jsa" for hierarchy "FLASH:flash|altsync
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_iob.tdf
     Info (12023): Found entity 1: mux_iob File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/mux_iob.tdf Line: 23
 Info (12128): Elaborating entity "mux_iob" for hierarchy "FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux4" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf Line: 49
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 123
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 179
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12130): Elaborated megafunction instantiation "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12133): Instantiated megafunction "RAM:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
@@ -980,64 +824,12 @@ Info (12133): Instantiated megafunction "RAM:ram|altsyncram:altsyncram_component
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_28g1.tdf
     Info (12023): Found entity 1: altsyncram_28g1 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_28g1" for hierarchy "RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (276020): Inferred RAM node "registerFile:regFile|regs_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "registerFile:regFile|regs_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Info (19000): Inferred 2 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "registerFile:regFile|regs_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "registerFile:regFile|regs_rtl_1" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-Info (12130): Elaborated megafunction instantiation "registerFile:regFile|altsyncram:regs_rtl_0"
-Info (12133): Instantiated megafunction "registerFile:regFile|altsyncram:regs_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "8"
-    Info (12134): Parameter "WIDTHAD_A" = "5"
-    Info (12134): Parameter "NUMWORDS_A" = "32"
-    Info (12134): Parameter "WIDTH_B" = "8"
-    Info (12134): Parameter "WIDTHAD_B" = "5"
-    Info (12134): Parameter "NUMWORDS_B" = "32"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3pd1.tdf
-    Info (12023): Found entity 1: altsyncram_3pd1 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_3pd1.tdf Line: 28
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "digitalIO[14]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 9
-    Warning (13410): Pin "digitalIO[15]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 9
     Warning (13410): Pin "debug[3]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 12
+    Warning (13410): Pin "progMode" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 16
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 45 registers lost all their fanouts during netlist optimizations.
+Info (17049): 40 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/output_files/BasicMCUInFPGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1045,16 +837,16 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "butt" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 11
     Warning (15610): No output dependent on input pin "buttProg" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 14
     Warning (15610): No output dependent on input pin "reset" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 15
-Info (21057): Implemented 879 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3365 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 26 output pins
-    Info (21061): Implemented 792 logic cells
-    Info (21064): Implemented 56 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 4805 megabytes
-    Info: Processing ended: Fri May 03 17:22:27 2019
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+    Info (21061): Implemented 3294 logic cells
+    Info (21064): Implemented 40 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 47 warnings
+    Info: Peak virtual memory: 4822 megabytes
+    Info: Processing ended: Wed May 08 21:57:24 2019
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:33
 
 
 +------------------------------------------+

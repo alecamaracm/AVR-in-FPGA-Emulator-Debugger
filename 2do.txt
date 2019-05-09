@@ -1,29 +1,30 @@
-cpi
-cpc
-brne
-sei
-in
-ori
+cpi///
+cpc///
+sei//
+in//
+ori//
 ld
-lds
+lds//
 st
-sts
+
+
+sts //
 cpi
-breq
-brcc
-andi
-push
-pop
-mov
-lpm
-movw
-and
-cpse
-or
-com
-adiw
-adc
-reti
-brcc
-add
-sbiw
+breq //
+brcc //
+andi //
+push //
+pop// 
+mov //
+lpm //
+
+movw //
+and //
+cpse //
+or //
+com //
+adiw //
+adc //
+reti //
+add //
+sbiw //

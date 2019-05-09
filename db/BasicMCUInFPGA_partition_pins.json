@@ -60,6 +60,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "digitalIO[14]",
+					"strict" : false
+				},
+				{
+					"name" : "digitalIO[15]",
+					"strict" : false
+				},
+				{
 					"name" : "stuck",
 					"strict" : false
 				},
@@ -89,10 +97,6 @@
 				},
 				{
 					"name" : "debug[7]",
-					"strict" : false
-				},
-				{
-					"name" : "progMode",
 					"strict" : false
 				},
 				{
