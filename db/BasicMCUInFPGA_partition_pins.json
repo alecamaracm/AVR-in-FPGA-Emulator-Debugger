@@ -60,14 +60,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "digitalIO[14]",
-					"strict" : false
-				},
-				{
-					"name" : "digitalIO[15]",
-					"strict" : false
-				},
-				{
 					"name" : "stuck",
 					"strict" : false
 				},
@@ -105,6 +97,38 @@
 				},
 				{
 					"name" : "RXD",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[0]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[1]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[2]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[3]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[4]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[5]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[6]",
+					"strict" : false
+				},
+				{
+					"name" : "inputs[7]",
 					"strict" : false
 				}
 			]

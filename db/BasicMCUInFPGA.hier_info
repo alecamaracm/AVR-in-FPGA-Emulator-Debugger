@@ -1,35 +1,43 @@
 |BasicMCUInFPGA
 clk => clk.IN5
-digitalIO[0] << PC[0].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[1] << PC[1].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[2] << PC[2].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[3] << PC[3].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[4] << PC[4].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[5] << PC[5].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[6] << PC[6].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[7] << PC[7].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[8] << PC[8].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[9] << PC[9].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[10] << PC[10].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[11] << PC[11].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[12] << PC[12].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[13] << PC[13].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[14] << PC[14].DB_MAX_OUTPUT_PORT_TYPE
-digitalIO[15] << PC[15].DB_MAX_OUTPUT_PORT_TYPE
-stuck << Equal0.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[0] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[1] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[2] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[3] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[4] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[5] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[6] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[7] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[8] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[9] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[10] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[11] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[12] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[13] <= digitalIO.DB_MAX_OUTPUT_PORT_TYPE
+digitalIO[14] <= <GND>
+digitalIO[15] <= <GND>
+inputs[0] => Selector63.IN3
+inputs[1] => Selector62.IN3
+inputs[2] => Selector61.IN3
+inputs[3] => Selector60.IN3
+inputs[4] => Selector59.IN3
+inputs[5] => Selector58.IN3
+inputs[6] => Selector57.IN3
+inputs[7] => Selector56.IN3
+stuck <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 butt => butt.IN1
-debug[0] << state[0].DB_MAX_OUTPUT_PORT_TYPE
-debug[1] << state[1].DB_MAX_OUTPUT_PORT_TYPE
-debug[2] << state[2].DB_MAX_OUTPUT_PORT_TYPE
-debug[3] << state[3].DB_MAX_OUTPUT_PORT_TYPE
-debug[4] << instructionSelector:selector.OPCODE_FINAL[0]
-debug[5] << instructionSelector:selector.OPCODE_FINAL[1]
-debug[6] << instructionSelector:selector.OPCODE_FINAL[2]
-debug[7] << instructionSelector:selector.OPCODE_FINAL[3]
+debug[0] <= state[0].DB_MAX_OUTPUT_PORT_TYPE
+debug[1] <= state[1].DB_MAX_OUTPUT_PORT_TYPE
+debug[2] <= state[2].DB_MAX_OUTPUT_PORT_TYPE
+debug[3] <= state[3].DB_MAX_OUTPUT_PORT_TYPE
+debug[4] <= instructionSelector:selector.OPCODE_FINAL[0]
+debug[5] <= instructionSelector:selector.OPCODE_FINAL[1]
+debug[6] <= instructionSelector:selector.OPCODE_FINAL[2]
+debug[7] <= instructionSelector:selector.OPCODE_FINAL[3]
 RXD => RXD.IN1
 buttProg => ~NO_FANOUT~
 reset => ~NO_FANOUT~
-progMode << <GND>
+progMode <= <GND>
 
 
 |BasicMCUInFPGA|slowClock:cloco
@@ -187,6 +195,7 @@ readedByte1[0] => Equal27.IN3
 readedByte1[0] => Equal34.IN15
 readedByte1[0] => Equal37.IN3
 readedByte1[0] => Equal38.IN2
+readedByte1[0] => Equal41.IN3
 readedByte1[1] => Equal1.IN2
 readedByte1[1] => Equal3.IN2
 readedByte1[1] => Equal5.IN14
@@ -201,6 +210,7 @@ readedByte1[1] => Equal27.IN2
 readedByte1[1] => Equal34.IN14
 readedByte1[1] => Equal37.IN2
 readedByte1[1] => Equal38.IN3
+readedByte1[1] => Equal41.IN1
 readedByte1[2] => Equal1.IN1
 readedByte1[2] => Equal3.IN1
 readedByte1[2] => Equal5.IN13
@@ -215,6 +225,7 @@ readedByte1[2] => Equal27.IN0
 readedByte1[2] => Equal34.IN13
 readedByte1[2] => Equal37.IN1
 readedByte1[2] => Equal38.IN1
+readedByte1[2] => Equal41.IN0
 readedByte1[3] => Equal1.IN0
 readedByte1[3] => Equal3.IN0
 readedByte1[3] => Equal5.IN4
@@ -227,6 +238,7 @@ readedByte1[3] => Equal27.IN1
 readedByte1[3] => Equal34.IN5
 readedByte1[3] => Equal37.IN0
 readedByte1[3] => Equal38.IN0
+readedByte1[3] => Equal41.IN2
 readedByte1[4] => Equal5.IN12
 readedByte1[4] => Equal6.IN6
 readedByte1[4] => Equal11.IN11
@@ -291,6 +303,7 @@ readedByte1[10] => Equal35.IN1
 readedByte1[10] => Equal36.IN2
 readedByte1[10] => Equal39.IN5
 readedByte1[10] => Equal40.IN6
+readedByte1[10] => Equal42.IN5
 readedByte1[11] => Equal2.IN5
 readedByte1[11] => Equal4.IN3
 readedByte1[11] => Equal5.IN7
@@ -316,6 +329,7 @@ readedByte1[11] => Equal35.IN0
 readedByte1[11] => Equal36.IN7
 readedByte1[11] => Equal39.IN4
 readedByte1[11] => Equal40.IN5
+readedByte1[11] => Equal42.IN0
 readedByte1[12] => Equal0.IN3
 readedByte1[12] => Equal2.IN1
 readedByte1[12] => Equal4.IN2
@@ -348,6 +362,7 @@ readedByte1[12] => Equal35.IN5
 readedByte1[12] => Equal36.IN1
 readedByte1[12] => Equal39.IN3
 readedByte1[12] => Equal40.IN4
+readedByte1[12] => Equal42.IN4
 readedByte1[13] => Equal0.IN2
 readedByte1[13] => Equal2.IN4
 readedByte1[13] => Equal4.IN1
@@ -380,6 +395,7 @@ readedByte1[13] => Equal35.IN4
 readedByte1[13] => Equal36.IN6
 readedByte1[13] => Equal39.IN2
 readedByte1[13] => Equal40.IN3
+readedByte1[13] => Equal42.IN3
 readedByte1[14] => Equal0.IN1
 readedByte1[14] => Equal2.IN3
 readedByte1[14] => Equal4.IN4
@@ -412,6 +428,7 @@ readedByte1[14] => Equal35.IN3
 readedByte1[14] => Equal36.IN5
 readedByte1[14] => Equal39.IN1
 readedByte1[14] => Equal40.IN2
+readedByte1[14] => Equal42.IN2
 readedByte1[15] => Equal0.IN0
 readedByte1[15] => Equal2.IN0
 readedByte1[15] => Equal4.IN0
@@ -444,6 +461,7 @@ readedByte1[15] => Equal35.IN2
 readedByte1[15] => Equal36.IN0
 readedByte1[15] => Equal39.IN0
 readedByte1[15] => Equal40.IN0
+readedByte1[15] => Equal42.IN1
 OPCODE_FINAL[0] <= OPCODE_FINAL.DB_MAX_OUTPUT_PORT_TYPE
 OPCODE_FINAL[1] <= OPCODE_FINAL.DB_MAX_OUTPUT_PORT_TYPE
 OPCODE_FINAL[2] <= OPCODE_FINAL.DB_MAX_OUTPUT_PORT_TYPE

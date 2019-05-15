@@ -1,5 +1,5 @@
 Flow report for BasicMCUInFPGA
-Wed May 08 21:58:01 2019
+Wed May 15 18:27:04 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed May 08 21:57:57 2019       ;
+; Flow Status                        ; Successful - Wed May 15 18:27:00 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,004 / 114,480 ( 3 % )                     ;
-;     Total combinational functions  ; 2,755 / 114,480 ( 2 % )                     ;
-;     Dedicated logic registers      ; 1,074 / 114,480 ( < 1 % )                   ;
-; Total registers                    ; 1074                                        ;
-; Total pins                         ; 31 / 529 ( 6 % )                            ;
+; Total logic elements               ; 2,353 / 114,480 ( 2 % )                     ;
+;     Total combinational functions  ; 2,329 / 114,480 ( 2 % )                     ;
+;     Dedicated logic registers      ; 571 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 571                                         ;
+; Total pins                         ; 39 / 529 ( 7 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 278,528 / 3,981,312 ( 7 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/08/2019 21:57:02 ;
+; Start date & time ; 05/15/2019 18:26:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; BasicMCUInFPGA      ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238177198224018.155736702204732        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 238177198224018.155795917011612        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; FLASH_bb.v                             ; --            ; --          ; --         ;
@@ -96,11 +96,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:23     ; 1.0                     ; 4822 MB             ; 00:00:33                           ;
-; Fitter                    ; 00:00:27     ; 1.1                     ; 5783 MB             ; 00:00:46                           ;
-; Assembler                 ; 00:00:03     ; 1.0                     ; 4712 MB             ; 00:00:03                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.2                     ; 4898 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:56     ; --                      ; --                  ; 00:01:25                           ;
+; Analysis & Synthesis      ; 00:00:20     ; 1.0                     ; 4819 MB             ; 00:00:31                           ;
+; Fitter                    ; 00:00:25     ; 1.1                     ; 5771 MB             ; 00:00:43                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4708 MB             ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.2                     ; 4892 MB             ; 00:00:03                           ;
+; Total                     ; 00:00:51     ; --                      ; --                  ; 00:01:20                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

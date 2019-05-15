@@ -1,5 +1,4 @@
 
-
 /*
 	Bit 5 in the SREG in NOT implemented (Half carry)
 
@@ -7,6 +6,7 @@
 
 module BasicMCUInFPGA(input clk,
 							output [15:0]digitalIO,
+							input [7:0]inputs,
 							output stuck,
 							input butt,
 							output [7:0]debug,	
@@ -19,16 +19,16 @@ assign stuck=(state==STUCK);
 
 //assign progMode=programmingMode;
 
-//assign digitalIO=(programmingMode==1'b1)?8'b10101010:{3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
+assign digitalIO=(programmingMode==1'b1)?8'b10101010:{3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
 
 //assign digitalIO={flash_out_1,flash_out_2};
 //assign digitalIO=(buttProg==1'b1)?{flash_out_1}:nextByteProgCounter;
 //assign digitalIO={8'd0,OPCODE};	
-assign digitalIO=PC;
+//assign digitalIO=debugData;
 //assign digitalIO={IOregs[62],reg1output};
 assign debug={OPCODE[3:0],state};	
 
-
+reg[15:0]debugData;
 reg [7:0]result;
 
 wire [3:0]regD;
@@ -142,6 +142,8 @@ stXP=8'd39,
 stX=8'd40,
 ldZ=8'd41,
 stZ=8'd42,
+lsr=8'd43,
+sbc=8'd44,
 skip1=8'd156,
 skip2=8'd157;
 
@@ -191,8 +193,11 @@ begin
 				
 		FETCH:
 		begin
-			//Wait for the RAM to output the data			
+			//Wait for the RAM to output the data	
+			//lsr
 			state=FETCH2;
+			state=FETCH2;
+		
 			writeEn=1'b0;
 			writeEn2=1'b0;
 			ram_WRen=1'b0;
@@ -332,7 +337,8 @@ begin
 				begin
 					writeEn=1'b1;
 					reg1address=regDE;
-					reg1input=IOregs[valA];
+				//	reg1input=(regDE==6'd11)?inputs:IOregs[valA];
+					reg1input=inputs;
 				end
 				
 				ori:
@@ -520,6 +526,27 @@ begin
 					reg2address=31;	
 				end
 				
+			/*	in:
+				begin
+					writeEn=1'b1;
+					reg1address=redDE;
+					//Always input from the same register, we only support the board switches
+					reg1input=inputs;
+				end*/
+				
+				lsr:
+				begin
+					writeEn=1'b0;
+					reg1address=regDE;
+				end
+				
+				sbc:
+				begin
+					writeEn=1'b0;
+					reg1address=regDE;
+					reg2address=regRE;
+				end
+				
 				
 				
 			endcase
@@ -566,6 +593,7 @@ begin
 					else
 					begin
 						IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output
+						
 					end				
 					 
 					PC=PC+16'd1;		
@@ -592,6 +620,7 @@ begin
 					reg1input=reg1output-{readedByte1[11:8],readedByte1[3:0]};
 					SREG[3]=(reg1output[7] & !readedByte1[11] & !reg1input[7])|(!reg1output[7] & readedByte1[11] & reg1input[7]);
 					SREG[0]= (!reg1output[7] & readedByte1[11])|(readedByte1[11] & reg1input[7])|(reg1input[7] & !reg1output[7]);	
+
 					writeEn=1'b1; 
 					//Go to next state now,while the value is being stored
 				end
@@ -657,6 +686,7 @@ begin
 				begin
 					writeEn=1'b1;
 					reg1input=reg1output&valK;
+
 				end
 				
 				push:
@@ -678,6 +708,7 @@ begin
 					writeEn=1'b1;
 					reg1address=regDE;	
 					reg1input=reg2output;
+				
 				end
 				
 				lpmII:
@@ -690,6 +721,7 @@ begin
 				begin
 					writeEn=1'b1;
 					reg1input=reg1output; 
+					
 					reg1address={regD,1'b0}; 			
 				end
 				
@@ -751,6 +783,7 @@ begin
 				add:
 				begin
 					{SREG[0],reg1input}=reg1output+reg2output;
+
 					writeEn=1'b1;
 				end
 				
@@ -782,6 +815,29 @@ begin
 				begin
 					ram_address={reg2output,reg1output};					
 					reg1address=regDE;				
+				end
+				
+				
+				/*in:
+				begin
+					writeEn=1'b0;				
+					PC=PC+1;
+				end*/
+				
+				lsr:
+				begin
+					writeEn=1'b1;
+					reg1address=regDE;
+					reg1input={1'b0,reg1output[7:1]};
+					SREG[0]=reg1output[0];
+					
+				end
+				
+				sbc:
+				begin
+					{reg1input}=reg1output-reg2output-SREG[0];
+					
+					writeEn=1'b1;
 				end
 				
 				
@@ -824,6 +880,10 @@ begin
 					writeEn=1'b0;  //Disable writing	
 					SREG[2]=reg1input[7];					
 					SREG[1]=(reg1input==8'b0);	
+					
+										
+					
+					
 					PC=PC+16'd1;
 					//Finished, go on with the execution				
 				end
@@ -869,6 +929,8 @@ begin
 					SREG[1]=(reg1input==0);
 					SREG[2]=(reg1input[7]);
 					SREG[3]=0;
+					
+
 					PC=PC+16'd1;
 				end
 				
@@ -956,6 +1018,7 @@ begin
 					SREG[2]=(reg1input[7]);
 					SREG[3]=0;  //Setting to 0, not bothering to do the calculations.
 					//	SREG[0]=1;  Already set in the calculations
+					PC=PC+16'd1;
 				end
 				
 				reti:
@@ -972,6 +1035,7 @@ begin
 					SREG[2]=(reg1input[7]);
 					SREG[3]=0;  //Setting to 0, not bothering to do the calculations.
 					//	SREG[0]=1;  Already set in the calculations
+					PC=PC+16'd1;
 				end
 				
 				sbiw:
@@ -1026,6 +1090,26 @@ begin
 					ram_WRen=1'b1; //Will be set to false in FETCH		
 		
 					PC=PC+16'd1;		
+				end
+				
+				lsr:
+				begin
+					writeEn=1'b0;					
+
+					SREG[1]=(reg1input==8'd0);
+					SREG[2]=0;
+					SREG[3]=SREG[0]^SREG[2];
+					PC=PC+16'd1;
+				end
+				
+				sbc:
+				begin					
+					writeEn=1'b0;
+					//SREG[1]=(reg1input==0);
+					SREG[2]=(reg1input[7]);
+					SREG[3]=0;  //Setting to 0, not bothering to do the calculations.
+					//	SREG[0]=1;  Already set in the calculations
+					PC=PC+16'd1;
 				end
 					
 

@@ -10,7 +10,7 @@ reg clk_out = 40'b0;
 always@(posedge clk)
 begin
 	counter <= counter + 1;
-	if (counter == 40'd1_000_000)     //
+	if (counter == 40'd1)     //
 	 begin
 		  counter <= 0;
 		  clk_out <= ~clk_out;

@@ -47,6 +47,8 @@ stXP=8'd39,
 stX=8'd40,
 ldZ=8'd41,
 stZ=8'd42,
+lsr=8'd43,
+sbc=8'd44,
 skip1=8'd156,
 skip2=8'd157;
 
@@ -134,7 +136,12 @@ begin
 		else if(readedByte1[15:9]==7'b1000000 && readedByte1[3:0]==4'b0000)
 			OPCODE<=ldZ;
 		else if(readedByte1[15:9]==7'b1000001 && readedByte1[3:0]==4'b0000)
-			OPCODE<=stZ;
+			OPCODE<=stZ;	
+		else if(readedByte1[15:9]==7'b1001010 && readedByte1[3:0]==4'b0110)
+			OPCODE<=lsr;
+		else if(readedByte1[15:10]==6'b000010)
+			OPCODE<=sbc;
+			
 			//OPCODE<=error;
 	
 		else 
