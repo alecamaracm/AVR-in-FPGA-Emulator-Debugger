@@ -100,6 +100,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "enableProg",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

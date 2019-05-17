@@ -49,6 +49,7 @@ ldZ=8'd41,
 stZ=8'd42,
 lsr=8'd43,
 sbc=8'd44,
+sub=8'd45,
 skip1=8'd156,
 skip2=8'd157;
 
@@ -141,6 +142,8 @@ begin
 			OPCODE<=lsr;
 		else if(readedByte1[15:10]==6'b000010)
 			OPCODE<=sbc;
+		else if(readedByte1[15:10]==6'b000110)
+			OPCODE<=sub;
 			
 			//OPCODE<=error;
 	

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for BasicMCUInFPGA
-Thu May 16 20:23:29 2019
+Fri May 17 13:37:38 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -64,16 +64,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 16 20:23:28 2019       ;
+; Analysis & Synthesis Status        ; Successful - Fri May 17 13:37:38 2019       ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                      ; BasicMCUInFPGA                              ;
 ; Top-level Entity Name              ; BasicMCUInFPGA                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4,297                                       ;
-;     Total combinational functions  ; 3,665                                       ;
-;     Dedicated logic registers      ; 1,310                                       ;
-; Total registers                    ; 1310                                        ;
-; Total pins                         ; 40                                          ;
+; Total logic elements               ; 4,513                                       ;
+;     Total combinational functions  ; 3,906                                       ;
+;     Dedicated logic registers      ; 1,365                                       ;
+; Total registers                    ; 1365                                        ;
+; Total pins                         ; 41                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 278,528                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -211,7 +211,7 @@ agreement for further details.
 ; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc                ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
 ; db/altsyncram_c1k2.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf ;         ;
-; flash.hex                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex              ;         ;
+; Flash.hex                        ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex              ;         ;
 ; db/decode_jsa.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/decode_jsa.tdf      ;         ;
 ; db/mux_iob.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/mux_iob.tdf         ;         ;
 ; db/altsyncram_28g1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_28g1.tdf ;         ;
@@ -223,31 +223,31 @@ agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,297     ;
+; Estimated Total logic elements              ; 4,513     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3665      ;
+; Total combinational functions               ; 3906      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 2361      ;
-;     -- 3 input functions                    ; 913       ;
-;     -- <=2 input functions                  ; 391       ;
+;     -- 4 input functions                    ; 2590      ;
+;     -- 3 input functions                    ; 911       ;
+;     -- <=2 input functions                  ; 405       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 3225      ;
-;     -- arithmetic mode                      ; 440       ;
+;     -- normal mode                          ; 3459      ;
+;     -- arithmetic mode                      ; 447       ;
 ;                                             ;           ;
-; Total registers                             ; 1310      ;
-;     -- Dedicated logic registers            ; 1310      ;
+; Total registers                             ; 1365      ;
+;     -- Dedicated logic registers            ; 1365      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 40        ;
+; I/O pins                                    ; 41        ;
 ; Total memory bits                           ; 278528    ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 705       ;
-; Total fan-out                               ; 18054     ;
-; Average fan-out                             ; 3.54      ;
+; Maximum fan-out                             ; 749       ;
+; Total fan-out                               ; 19186     ;
+; Average fan-out                             ; 3.56      ;
 +---------------------------------------------+-----------+
 
 
@@ -256,7 +256,7 @@ agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |BasicMCUInFPGA                           ; 3665 (2552)         ; 1310 (914)                ; 278528      ; 0            ; 0       ; 0         ; 40   ; 0            ; |BasicMCUInFPGA                                                                                               ; BasicMCUInFPGA      ; work         ;
+; |BasicMCUInFPGA                           ; 3906 (2794)         ; 1365 (969)                ; 278528      ; 0            ; 0       ; 0         ; 41   ; 0            ; |BasicMCUInFPGA                                                                                               ; BasicMCUInFPGA      ; work         ;
 ;    |FLASH:flash|                          ; 34 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash                                                                                   ; FLASH               ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 34 (0)              ; 2 (0)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component                                                   ; altsyncram          ; work         ;
 ;          |altsyncram_c1k2:auto_generated| ; 34 (0)              ; 2 (2)                     ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated                    ; altsyncram_c1k2     ; work         ;
@@ -267,10 +267,10 @@ agreement for further details.
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component                                                       ; altsyncram          ; work         ;
 ;          |altsyncram_28g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|RAM:ram|altsyncram:altsyncram_component|altsyncram_28g1:auto_generated                        ; altsyncram_28g1     ; work         ;
 ;    |UART:prog|                            ; 78 (78)             ; 42 (42)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|UART:prog                                                                                     ; UART                ; work         ;
-;    |instructionSelector:selector|         ; 107 (107)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                                  ; instructionSelector ; work         ;
-;    |packetSenter:sender|                  ; 154 (43)            ; 63 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|packetSenter:sender                                                                           ; packetSenter        ; work         ;
+;    |instructionSelector:selector|         ; 113 (113)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|instructionSelector:selector                                                                  ; instructionSelector ; work         ;
+;    |packetSenter:sender|                  ; 150 (39)            ; 63 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|packetSenter:sender                                                                           ; packetSenter        ; work         ;
 ;       |outputShifter:shifter|             ; 111 (111)           ; 46 (46)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter                                                     ; outputShifter       ; work         ;
-;    |registerFile:regFile|                 ; 675 (675)           ; 256 (256)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile                                                                          ; registerFile        ; work         ;
+;    |registerFile:regFile|                 ; 672 (672)           ; 256 (256)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|registerFile:regFile                                                                          ; registerFile        ; work         ;
 ;    |slowClock:cloco|                      ; 65 (65)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |BasicMCUInFPGA|slowClock:cloco                                                                               ; slowClock           ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -348,7 +348,46 @@ Encoding Type:  One-Hot
 +---------------------------------------------------+----------------------------------------+
 ; Register name                                     ; Reason for Removal                     ;
 +---------------------------------------------------+----------------------------------------+
-; lastShifterState                                  ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][0]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][1]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][2]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][3]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][4]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][5]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][6]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[5][7]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][0]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][1]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][2]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][3]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][4]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][5]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][6]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[4][7]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][0]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][1]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][2]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][3]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][4]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][5]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][6]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[3][7]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][0]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][1]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][2]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][3]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][4]                                 ; Stuck at VCC due to stuck port data_in ;
+; dataToShift[1][5]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][6]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[1][7]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[0][0]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[0][1]                                 ; Stuck at VCC due to stuck port data_in ;
+; dataToShift[0][2]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[0][3]                                 ; Stuck at VCC due to stuck port data_in ;
+; dataToShift[0][4]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[0][5]                                 ; Stuck at VCC due to stuck port data_in ;
+; dataToShift[0][6]                                 ; Stuck at GND due to stuck port data_in ;
+; dataToShift[0][7]                                 ; Stuck at GND due to stuck port data_in ;
 ; reg2input[4..7]                                   ; Stuck at GND due to stuck port data_in ;
 ; dataToShiftReal[0][4]                             ; Merged with dataToShiftReal[0][0]      ;
 ; dataToShiftReal[0][6]                             ; Merged with dataToShiftReal[0][0]      ;
@@ -371,8 +410,6 @@ Encoding Type:  One-Hot
 ; IOregs[8][2]                                      ; Stuck at GND due to stuck port data_in ;
 ; IOregs[8][1]                                      ; Stuck at GND due to stuck port data_in ;
 ; IOregs[8][0]                                      ; Stuck at GND due to stuck port data_in ;
-; dataToShiftProg[0][2]                             ; Merged with dataToShiftProg[0][1]      ;
-; dataToShiftReal[0][2]                             ; Merged with dataToShiftReal[0][1]      ;
 ; programmingMode~6                                 ; Lost fanout                            ;
 ; programmingMode~7                                 ; Lost fanout                            ;
 ; UART:prog|state~5                                 ; Lost fanout                            ;
@@ -387,18 +424,18 @@ Encoding Type:  One-Hot
 ; packetSenter:sender|outputShifter:shifter|state~7 ; Lost fanout                            ;
 ; nextByteProgCounter[15..49]                       ; Lost fanout                            ;
 ; progDetect[3]                                     ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 76            ;                                        ;
+; Total Number of Removed Registers = 113           ;                                        ;
 +---------------------------------------------------+----------------------------------------+
 
 
-+---------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                           ;
-+------------------+---------------------------+----------------------------------------+
-; Register name    ; Reason for Removal        ; Registers Removed due to This Register ;
-+------------------+---------------------------+----------------------------------------+
-; lastShifterState ; Stuck at GND              ; dataToShiftReal[0][0]                  ;
-;                  ; due to stuck port data_in ;                                        ;
-+------------------+---------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                            ;
++-------------------+---------------------------+----------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register ;
++-------------------+---------------------------+----------------------------------------+
+; dataToShift[0][0] ; Stuck at GND              ; dataToShiftReal[0][0]                  ;
+;                   ; due to stuck port data_in ;                                        ;
++-------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -406,12 +443,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1310  ;
-; Number of registers using Synchronous Clear  ; 78    ;
-; Number of registers using Synchronous Load   ; 77    ;
+; Total registers                              ; 1365  ;
+; Number of registers using Synchronous Clear  ; 93    ;
+; Number of registers using Synchronous Load   ; 87    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1138  ;
+; Number of registers using Clock Enable       ; 1193  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -440,117 +477,120 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|UART:prog|dataBitCounter[2]                                  ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|packetCount[2]                           ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[5][2]                                                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|UART:prog|dataBitCounter[0]                                  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|packetCount[3]                           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[5][1]                                                 ;
+; 3:1                ; 35 bits   ; 70 LEs        ; 35 LEs               ; 35 LEs                 ; Yes        ; |BasicMCUInFPGA|dataToShiftReal[5][5]                                        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|dataToShiftReal[2][5]                                        ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[0][4]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[0][3]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][4]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][0]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][6]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[1][1]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[2][4]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[2][1]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][4]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][2]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][4]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][3]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][7]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][1]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][5]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[3][1]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][5]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[4][1]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][5]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[5][2]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[6][7]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[6][3]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][6]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][1]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[6][0]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][7]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[7][0]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[8][7]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[8][3]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[9][5]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[8][0]                              ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[9][4]                              ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[9][3]                              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][3]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[10][0]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[11][4]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[11][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][1]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[11][0]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[12][2]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[13][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[13][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][4]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[15][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[13][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][5]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[14][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[15][5]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[15][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[16][6]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[16][4]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[16][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][0]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][0]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][0]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][0]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[17][3]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[18][1]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][7]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[19][3]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][5]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[20][1]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[21][4]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[21][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][4]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[23][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][7]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[22][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[23][7]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[23][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][3]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][7]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][0]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[26][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][4]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[24][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][5]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[25][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[26][5]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[26][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][2]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][5]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[27][3]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[28][6]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[28][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][4]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][3]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[28][1]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][5]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[29][2]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[30][6]                             ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[30][2]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][5]                             ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][0]                             ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[11][2]                                                ;
-; 5:1                ; 50 bits   ; 150 LEs       ; 50 LEs               ; 100 LEs                ; Yes        ; |BasicMCUInFPGA|nextByteProgCounter[29]                                      ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|progDetect[0]                                                ;
-; 6:1                ; 40 bits   ; 160 LEs       ; 40 LEs               ; 120 LEs                ; Yes        ; |BasicMCUInFPGA|timeToExitProgramming[24]                                    ;
-; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |BasicMCUInFPGA|UART:prog|timeForNextBit[14]                                 ;
-; 32:1               ; 4 bits    ; 84 LEs        ; 16 LEs               ; 68 LEs                 ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|dataForShifter[6]                        ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|dataBitCounter[1]  ;
-; 19:1               ; 3 bits    ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|dataForShifter[1]                        ;
-; 19:1               ; 4 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |BasicMCUInFPGA|state[1]                                                     ;
-; 66:1               ; 16 bits   ; 704 LEs       ; 16 LEs               ; 688 LEs                ; Yes        ; |BasicMCUInFPGA|resultWord[4]                                                ;
-; 257:1              ; 8 bits    ; 1368 LEs      ; 16 LEs               ; 1352 LEs               ; Yes        ; |BasicMCUInFPGA|SETcyclesToDo[6]                                             ;
-; 8:1                ; 32 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|timeForNextBit[16] ;
-; 254:1              ; 2 bits    ; 338 LEs       ; 2 LEs                ; 336 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[0][1]                                        ;
-; 254:1              ; 5 bits    ; 845 LEs       ; 5 LEs                ; 840 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[1][7]                                        ;
-; 260:1              ; 8 bits    ; 1384 LEs      ; 24 LEs               ; 1360 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[2][5]                                        ;
-; 82:1               ; 8 bits    ; 432 LEs       ; 16 LEs               ; 416 LEs                ; Yes        ; |BasicMCUInFPGA|ram_inputData[2]                                             ;
-; 262:1              ; 4 bits    ; 696 LEs       ; 16 LEs               ; 680 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[4][4]                                        ;
-; 264:1              ; 4 bits    ; 704 LEs       ; 20 LEs               ; 684 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[4][0]                                        ;
-; 73:1               ; 3 bits    ; 144 LEs       ; 9 LEs                ; 135 LEs                ; Yes        ; |BasicMCUInFPGA|reg2address[4]                                               ;
-; 271:1              ; 6 bits    ; 1080 LEs      ; 60 LEs               ; 1020 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[5][0]                                        ;
-; 273:1              ; 8 bits    ; 1456 LEs      ; 88 LEs               ; 1368 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[3][0]                                        ;
-; 52:1               ; 10 bits   ; 340 LEs       ; 40 LEs               ; 300 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[6]                                               ;
-; 65:1               ; 7 bits    ; 301 LEs       ; 28 LEs               ; 273 LEs                ; Yes        ; |BasicMCUInFPGA|PC[4]                                                        ;
-; 66:1               ; 8 bits    ; 352 LEs       ; 32 LEs               ; 320 LEs                ; Yes        ; |BasicMCUInFPGA|PC[13]                                                       ;
-; 90:1               ; 6 bits    ; 360 LEs       ; 78 LEs               ; 282 LEs                ; Yes        ; |BasicMCUInFPGA|reg1input[1]                                                 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][6]                             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |BasicMCUInFPGA|registerFile:regFile|regs[31][2]                             ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |BasicMCUInFPGA|breakAt[1]                                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |BasicMCUInFPGA|IOregs[11][1]                                                ;
+; 5:1                ; 50 bits   ; 150 LEs       ; 50 LEs               ; 100 LEs                ; Yes        ; |BasicMCUInFPGA|nextByteProgCounter[39]                                      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |BasicMCUInFPGA|progDetect[1]                                                ;
+; 6:1                ; 40 bits   ; 160 LEs       ; 40 LEs               ; 120 LEs                ; Yes        ; |BasicMCUInFPGA|timeToExitProgramming[18]                                    ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |BasicMCUInFPGA|UART:prog|timeForNextBit[2]                                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|dataBitCounter[3]  ;
+; 19:1               ; 7 bits    ; 84 LEs        ; 28 LEs               ; 56 LEs                 ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|dataForShifter[1]                        ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |BasicMCUInFPGA|state[3]                                                     ;
+; 66:1               ; 16 bits   ; 704 LEs       ; 16 LEs               ; 688 LEs                ; Yes        ; |BasicMCUInFPGA|resultWord[8]                                                ;
+; 257:1              ; 8 bits    ; 1368 LEs      ; 16 LEs               ; 1352 LEs               ; Yes        ; |BasicMCUInFPGA|SETcyclesToDo[3]                                             ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|timeForNextBit[19] ;
+; 255:1              ; 2 bits    ; 340 LEs       ; 2 LEs                ; 338 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[0][2]                                        ;
+; 255:1              ; 3 bits    ; 510 LEs       ; 3 LEs                ; 507 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[1][7]                                        ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 4 LEs                ; 336 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[1][2]                                        ;
+; 82:1               ; 8 bits    ; 432 LEs       ; 16 LEs               ; 416 LEs                ; Yes        ; |BasicMCUInFPGA|ram_inputData[0]                                             ;
+; 262:1              ; 8 bits    ; 1392 LEs      ; 32 LEs               ; 1360 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[2][7]                                        ;
+; 72:1               ; 3 bits    ; 144 LEs       ; 9 LEs                ; 135 LEs                ; Yes        ; |BasicMCUInFPGA|reg2address[4]                                               ;
+; 263:1              ; 4 bits    ; 700 LEs       ; 16 LEs               ; 684 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[4][6]                                        ;
+; 265:1              ; 4 bits    ; 704 LEs       ; 20 LEs               ; 684 LEs                ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[4][0]                                        ;
+; 272:1              ; 6 bits    ; 1086 LEs      ; 60 LEs               ; 1026 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[5][0]                                        ;
+; 275:1              ; 8 bits    ; 1464 LEs      ; 96 LEs               ; 1368 LEs               ; Yes        ; |BasicMCUInFPGA|dataToShiftProg[3][4]                                        ;
+; 52:1               ; 10 bits   ; 340 LEs       ; 40 LEs               ; 300 LEs                ; Yes        ; |BasicMCUInFPGA|ram_address[8]                                               ;
+; 82:1               ; 6 bits    ; 324 LEs       ; 84 LEs               ; 240 LEs                ; Yes        ; |BasicMCUInFPGA|reg1input[2]                                                 ;
+; 73:1               ; 7 bits    ; 336 LEs       ; 28 LEs               ; 308 LEs                ; Yes        ; |BasicMCUInFPGA|PC[7]                                                        ;
+; 75:1               ; 8 bits    ; 400 LEs       ; 32 LEs               ; 368 LEs                ; Yes        ; |BasicMCUInFPGA|PC[12]                                                       ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE                          ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux68                                                        ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux87                                                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux64                                                        ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux86                                                        ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |BasicMCUInFPGA|programmingMode                                              ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux61                                                        ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux65                                                        ;
-; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux7                                    ;
-; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux14                                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux67                                                        ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux64                                                        ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux5                                    ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|registerFile:regFile|Mux9                                    ;
 ; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux88                                                        ;
 ; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux85                                                        ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE.nop                      ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux62                                                        ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux90                                                        ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|Selector3          ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|Selector2          ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux89                                                        ;
-; 37:1               ; 5 bits    ; 120 LEs       ; 20 LEs               ; 100 LEs                ; No         ; |BasicMCUInFPGA|Mux42                                                        ;
-; 40:1               ; 3 bits    ; 78 LEs        ; 12 LEs               ; 66 LEs                 ; No         ; |BasicMCUInFPGA|Mux46                                                        ;
-; 40:1               ; 7 bits    ; 182 LEs       ; 28 LEs               ; 154 LEs                ; No         ; |BasicMCUInFPGA|Mux50                                                        ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; No         ; |BasicMCUInFPGA|instructionSelector:selector|OPCODE.cpi                      ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux66                                                        ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux87                                                        ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|Selector1          ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|Selector0          ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |BasicMCUInFPGA|Mux85                                                        ;
+; 37:1               ; 5 bits    ; 120 LEs       ; 20 LEs               ; 100 LEs                ; No         ; |BasicMCUInFPGA|Mux45                                                        ;
+; 40:1               ; 3 bits    ; 78 LEs        ; 12 LEs               ; 66 LEs                 ; No         ; |BasicMCUInFPGA|Mux47                                                        ;
+; 40:1               ; 7 bits    ; 182 LEs       ; 28 LEs               ; 154 LEs                ; No         ; |BasicMCUInFPGA|Mux55                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 
 
@@ -786,29 +826,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 40                          ;
-; cycloneiii_ff         ; 1310                        ;
-;     ENA               ; 1061                        ;
-;     ENA SCLR          ; 36                          ;
+; boundary_port         ; 41                          ;
+; cycloneiii_ff         ; 1365                        ;
+;     ENA               ; 1092                        ;
+;     ENA SCLR          ; 51                          ;
 ;     ENA SCLR SLD      ; 10                          ;
-;     ENA SLD           ; 31                          ;
+;     ENA SLD           ; 40                          ;
 ;     SCLR              ; 32                          ;
-;     SLD               ; 36                          ;
-;     plain             ; 104                         ;
-; cycloneiii_lcell_comb ; 3667                        ;
-;     arith             ; 440                         ;
-;         2 data inputs ; 226                         ;
-;         3 data inputs ; 214                         ;
-;     normal            ; 3227                        ;
-;         0 data inputs ; 5                           ;
-;         1 data inputs ; 29                          ;
-;         2 data inputs ; 133                         ;
-;         3 data inputs ; 699                         ;
-;         4 data inputs ; 2361                        ;
+;     SLD               ; 37                          ;
+;     plain             ; 103                         ;
+; cycloneiii_lcell_comb ; 3908                        ;
+;     arith             ; 447                         ;
+;         2 data inputs ; 232                         ;
+;         3 data inputs ; 215                         ;
+;     normal            ; 3461                        ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 33                          ;
+;         2 data inputs ; 136                         ;
+;         3 data inputs ; 696                         ;
+;         4 data inputs ; 2590                        ;
 ; cycloneiii_ram_block  ; 40                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 16.00                       ;
-; Average LUT depth     ; 8.54                        ;
+; Max LUT depth         ; 17.00                       ;
+; Average LUT depth     ; 8.68                        ;
 +-----------------------+-----------------------------+
 
 
@@ -817,7 +857,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:17     ;
+; Top            ; 00:00:19     ;
 +----------------+--------------+
 
 
@@ -827,7 +867,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu May 16 20:23:01 2019
+    Info: Processing started: Fri May 17 13:37:09 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BasicMCUInFPGA -c BasicMCUInFPGA
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -852,65 +892,64 @@ Info (12021): Found 1 design units, including 1 entities, in source file outputs
     Info (12023): Found entity 1: outputShifter File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/outputShifter.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file packetsende.v
     Info (12023): Found entity 1: packetSenter File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/packetSende.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at BasicMCUInFPGA.v(228): created implicit net for "slowClock" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 228
+Warning (10236): Verilog HDL Implicit Net warning at BasicMCUInFPGA.v(230): created implicit net for "slowClock" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 230
 Warning (10236): Verilog HDL Implicit Net warning at outputShifter.v(18): created implicit net for "debug" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/outputShifter.v Line: 18
 Info (12127): Elaborating entity "BasicMCUInFPGA" for the top level hierarchy
-Warning (10858): Verilog HDL warning at BasicMCUInFPGA.v(37): object dataToShift used but never assigned File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 37
-Warning (10036): Verilog HDL or VHDL warning at BasicMCUInFPGA.v(103): object "valA" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 103
-Warning (10036): Verilog HDL or VHDL warning at BasicMCUInFPGA.v(281): object "hasToStopNextFETCH" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 281
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(23): truncated value with size 17 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 23
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(328): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 328
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(384): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 384
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(401): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 401
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(403): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 403
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(496): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 496
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(543): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 543
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(545): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 545
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(584): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 584
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(590): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 590
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(610): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 610
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(611): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 611
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(625): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 625
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(640): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 640
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(641): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 641
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(718): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 718
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(755): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 755
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(830): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 830
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(844): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 844
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(867): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 867
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(929): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 929
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(949): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 949
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(955): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 955
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(961): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 961
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(966): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 966
-Warning (10272): Verilog HDL Case Statement warning at BasicMCUInFPGA.v(898): case item expression covers a value already covered by a previous case item File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 898
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1006): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1006
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1090): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1090
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1151): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1151
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1193): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1193
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1224): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1224
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1353): truncated value with size 50 to match size of target (14) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1353
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1385): truncated value with size 32 to match size of target (4) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1385
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1456): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1456
-Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1461): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1461
-Warning (10030): Net "dataToShift" at BasicMCUInFPGA.v(37) has no driver or initial value, using a default initial value '0' File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 37
-Info (12128): Elaborating entity "packetSenter" for hierarchy "packetSenter:sender" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 88
+Warning (10036): Verilog HDL or VHDL warning at BasicMCUInFPGA.v(283): object "hasToStopNextFETCH" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 283
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(24): truncated value with size 17 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 24
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(338): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 338
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(389): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 389
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(406): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 406
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(408): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 408
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(503): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 503
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(550): truncated value with size 32 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 550
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(552): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 552
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(591): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 591
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(597): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 597
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(617): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 617
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(618): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 618
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(632): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 632
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(647): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 647
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(648): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 648
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(724): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 724
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(775): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 775
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(839): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 839
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(851): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 851
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(870): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 870
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(884): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 884
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(907): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 907
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(969): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 969
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(989): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 989
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(995): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 995
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1001): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1001
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1006): truncated value with size 16 to match size of target (11) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1006
+Warning (10272): Verilog HDL Case Statement warning at BasicMCUInFPGA.v(938): case item expression covers a value already covered by a previous case item File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 938
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1047): truncated value with size 22 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1047
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1128): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1128
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1189): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1189
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1231): truncated value with size 32 to match size of target (5) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1231
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1262): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1262
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1424): truncated value with size 50 to match size of target (14) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1424
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1456): truncated value with size 32 to match size of target (4) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1456
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1527): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1527
+Warning (10230): Verilog HDL assignment warning at BasicMCUInFPGA.v(1532): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 1532
+Info (12128): Elaborating entity "packetSenter" for hierarchy "packetSenter:sender" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 89
 Info (12128): Elaborating entity "outputShifter" for hierarchy "packetSenter:sender|outputShifter:shifter" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/packetSende.v Line: 11
 Warning (10036): Verilog HDL or VHDL warning at outputShifter.v(18): object "debug" assigned a value but never read File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/outputShifter.v Line: 18
 Warning (10230): Verilog HDL assignment warning at outputShifter.v(18): truncated value with size 8 to match size of target (1) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/outputShifter.v Line: 18
 Warning (10230): Verilog HDL assignment warning at outputShifter.v(63): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/outputShifter.v Line: 63
-Info (12128): Elaborating entity "slowClock" for hierarchy "slowClock:cloco" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 214
+Info (12128): Elaborating entity "slowClock" for hierarchy "slowClock:cloco" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 216
 Warning (10230): Verilog HDL assignment warning at ClockDownscaler.v(8): truncated value with size 40 to match size of target (1) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/ClockDownscaler.v Line: 8
-Info (12128): Elaborating entity "UART" for hierarchy "UART:prog" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 220
+Info (12128): Elaborating entity "UART" for hierarchy "UART:prog" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 222
 Warning (10230): Verilog HDL assignment warning at UART.v(38): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 38
 Warning (10230): Verilog HDL assignment warning at UART.v(50): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 50
 Warning (10230): Verilog HDL assignment warning at UART.v(52): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 52
 Warning (10230): Verilog HDL assignment warning at UART.v(61): truncated value with size 32 to match size of target (8) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 61
 Warning (10230): Verilog HDL assignment warning at UART.v(62): truncated value with size 32 to match size of target (16) File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/UART.v Line: 62
-Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 223
-Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 228
-Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 268
-Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 271
+Info (12128): Elaborating entity "instructionSelector" for hierarchy "instructionSelector:selector" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 225
+Info (12128): Elaborating entity "PushButton_Debouncer" for hierarchy "PushButton_Debouncer:debouncer" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 230
+Info (12128): Elaborating entity "registerFile" for hierarchy "registerFile:regFile" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 270
+Info (12128): Elaborating entity "FLASH" for hierarchy "FLASH:flash" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 273
 Info (12128): Elaborating entity "altsyncram" for hierarchy "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12130): Elaborated megafunction instantiation "FLASH:flash|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12133): Instantiated megafunction "FLASH:flash|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
@@ -944,13 +983,25 @@ Info (12133): Instantiated megafunction "FLASH:flash|altsyncram:altsyncram_compo
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_c1k2.tdf
     Info (12023): Found entity 1: altsyncram_c1k2 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf Line: 32
 Info (12128): Elaborating entity "altsyncram_c1k2" for hierarchy "FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (113015): Width of data items in "Flash.hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 11 warnings, reporting 10 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 1
+    Warning (113009): Data at line (1) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 1
+    Warning (113009): Data at line (2) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 2
+    Warning (113009): Data at line (3) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 3
+    Warning (113009): Data at line (4) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 4
+    Warning (113009): Data at line (5) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 5
+    Warning (113009): Data at line (6) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 6
+    Warning (113009): Data at line (7) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 7
+    Warning (113009): Data at line (8) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 8
+    Warning (113009): Data at line (9) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 9
+    Warning (113009): Data at line (10) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 10
+Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (84) in the Memory Initialization File "C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex" -- setting initial value for remaining addresses to 0 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/FLASH.v Line: 98
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_jsa.tdf
     Info (12023): Found entity 1: decode_jsa File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/decode_jsa.tdf Line: 23
 Info (12128): Elaborating entity "decode_jsa" for hierarchy "FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|decode_jsa:decode2" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf Line: 47
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_iob.tdf
     Info (12023): Found entity 1: mux_iob File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/mux_iob.tdf Line: 23
 Info (12128): Elaborating entity "mux_iob" for hierarchy "FLASH:flash|altsyncram:altsyncram_component|altsyncram_c1k2:auto_generated|mux_iob:mux4" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/db/altsyncram_c1k2.tdf Line: 49
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 275
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 277
 Info (12128): Elaborating entity "altsyncram" for hierarchy "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12130): Elaborated megafunction instantiation "RAM:ram|altsyncram:altsyncram_component" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
 Info (12133): Instantiated megafunction "RAM:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/RAM.v Line: 86
@@ -975,26 +1026,26 @@ Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "digitalIO[14]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 8
     Warning (13410): Pin "digitalIO[15]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 8
-    Warning (13410): Pin "debug[3]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 12
+    Warning (13410): Pin "debug[3]" is stuck at GND File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 47 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/output_files/BasicMCUInFPGA.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "butt" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 11
-    Warning (15610): No output dependent on input pin "buttProg" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 14
-    Warning (15610): No output dependent on input pin "reset" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 15
-Info (21057): Implemented 4411 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
+    Warning (15610): No output dependent on input pin "butt" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 12
+    Warning (15610): No output dependent on input pin "buttProg" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 15
+    Warning (15610): No output dependent on input pin "reset" File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/BasicMCUInFPGA.v Line: 16
+Info (21057): Implemented 4629 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
     Info (21059): Implemented 27 output pins
-    Info (21061): Implemented 4331 logic cells
+    Info (21061): Implemented 4548 logic cells
     Info (21064): Implemented 40 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 60 warnings
-    Info: Peak virtual memory: 4848 megabytes
-    Info: Processing ended: Thu May 16 20:23:29 2019
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 71 warnings
+    Info: Peak virtual memory: 4830 megabytes
+    Info: Processing ended: Fri May 17 13:37:38 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:42
 
 
 +------------------------------------------+

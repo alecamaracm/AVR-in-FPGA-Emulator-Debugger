@@ -7,6 +7,7 @@
 module BasicMCUInFPGA(input clk,
 							output [15:0]digitalIO,
 							input [7:0]inputs,
+							input enableProg,
 							output stuck,
 							input butt,
 							output [7:0]debug,	
@@ -203,6 +204,7 @@ ldZ=8'd41,
 stZ=8'd42,
 lsr=8'd43,
 sbc=8'd44,
+sub=8'd45,
 skip1=8'd156,
 skip2=8'd157;
 
@@ -280,6 +282,12 @@ reg [7:0]cyclesToDo=0;
 reg skipNext=1'b0;
 reg hasToStopNextFETCH=0;
 
+reg lastRXstateI=0;
+reg myLastRXstate=0;
+reg alreadyRemoved=0;
+reg [7:0]lastRXdata[4];
+
+
 
 always @(posedge finalClock)
 begin
@@ -303,6 +311,8 @@ begin
 		state=FETCH;
 		IOregs[8'd5]=0;
 		IOregs[8'd11]=0;
+		skipNext=0;
+		cyclesToDo=0;
 	end
 	else
 	begin
@@ -333,13 +343,8 @@ begin
 		begin
 			//Wait for the RAM to output the data	
 			//lsr
-			//if(PC!=17'hac/2)state=FETCH2;
-			
-				state=FETCH2;
-			
-		
-			
-		
+			//if(PC!=17'hac/2)state=FETCH2;			
+			state=FETCH2;			
 			writeEn=1'b0;
 			writeEn2=1'b0;
 			ram_WRen=1'b0;
@@ -478,10 +483,12 @@ begin
 				
 				in:
 				begin
-					writeEn=1'b1;
-					reg1address=regDE;
-				//	reg1input=(regDE==6'd11)?inputs:IOregs[valA];
-					reg1input=inputs;
+					if(alreadyRemoved==0)
+					begin
+						myLastRXstate=lastRXstateI;
+						alreadyRemoved=1;
+					end
+
 				end
 				
 				ori:
@@ -668,14 +675,7 @@ begin
 					reg1address=30; 
 					reg2address=31;	
 				end
-				
-			/*	in:
-				begin
-					writeEn=1'b1;
-					reg1address=redDE;
-					//Always input from the same register, we only support the board switches
-					reg1input=inputs;
-				end*/
+
 				
 				lsr:
 				begin
@@ -690,6 +690,12 @@ begin
 					reg2address=regRE;
 				end
 				
+				sub:
+				begin
+					writeEn=1'b0;
+					reg1address=regDE;
+					reg2address=regRE;
+				end
 				
 				
 			endcase
@@ -728,25 +734,39 @@ begin
 					if({readedByte1[10:9],readedByte1[3:0]}==6'b111101)
 					begin
 						SP[7:0]=reg1output;  //If the IO reg is 61, it is SPl
+						PC=PC+16'd1;
 					end
 					else if({readedByte1[10:9],readedByte1[3:0]}==6'b111110)
 					begin
 						SP[15:8]=reg1output; //If the IO reg is 62, its is SPH
+						PC=PC+16'd1;
 					end
 					else if({readedByte1[10:9],readedByte1[3:0]}==6'h8)
 					begin
-						
-						/*dataToShift[0]=8'd32;
-						dataToShift[1]=reg1output;	
-						shifterState=!shifterState;*/
-						//if(PC!=17'hac/2) state=STUCK;
+						if(TXcomplete==1)
+						begin		
+							dataToShift[0]=42;  //Init message
+							dataToShift[1]=8'd16;
+							dataToShift[2]=reg1output;
+							dataToShift[3]=0;
+							dataToShift[4]=0;
+							dataToShift[5]=0;										
+
+							shifterState=!shifterState;		
+							PC=PC+16'd1;
+						end
+						else
+						begin
+							//We stay in this instruction until the signal can be sent
+						end
 					end
 					else
 					begin
-						IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output						
+						IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output		
+						PC=PC+16'd1;
 					end				
 					 
-					PC=PC+16'd1;		
+							
 				end
 				
 				ret:
@@ -808,8 +828,28 @@ begin
 				
 				in:
 				begin
-					writeEn=1'b0;
-					PC=PC+16'd1;	
+					if(valA==6'h8) //Reading from serial
+					begin
+						if(myLastRXstate!=lastRXstateI)
+						begin
+							alreadyRemoved=0;
+							writeEn=1'b1;
+							reg1address=regDE;
+							reg1input=lastRXdata[0];
+							PC=PC+1;
+						end
+						else
+						begin
+							writeEn=1'b0;
+						end
+					end
+					else
+					begin
+						writeEn=1'b1;
+						reg1address=regDE;
+						reg1input=inputs;
+						PC=PC+1;
+					end	
 				end
 				
 				ori:
@@ -967,12 +1007,7 @@ begin
 					reg1address=regDE;				
 				end
 				
-				
-				/*in:
-				begin
-					writeEn=1'b0;				
-					PC=PC+1;
-				end*/
+
 				
 				lsr:
 				begin
@@ -987,6 +1022,12 @@ begin
 				begin
 					{reg1input}=reg1output-reg2output-SREG[0];
 					
+					writeEn=1'b1;
+				end
+				
+				sub:
+				begin
+					{SREG[0],reg1input}=reg1output-reg2output;
 					writeEn=1'b1;
 				end
 				
@@ -1029,10 +1070,7 @@ begin
 				begin					
 					writeEn=1'b0;  //Disable writing	
 					SREG[2]=reg1input[7];					
-					SREG[1]=(reg1input==8'b0);	
-					
-										
-					
+					SREG[1]=(reg1input==8'b0);						
 					
 					PC=PC+16'd1;
 					//Finished, go on with the execution				
@@ -1261,19 +1299,30 @@ begin
 					//	SREG[0]=1;  Already set in the calculations
 					PC=PC+16'd1;
 				end
+				
+								
+				in:
+				begin
+					writeEn=1'b0;				
+					//NO PC+1 HERE, IT IS DONE EARLIER
+				end
+				
+				sub:
+				begin					
+					writeEn=1'b0;
+					SREG[1]=(reg1input==0);
+					SREG[2]=(reg1input[7]);
+					SREG[3]=0;  //Setting to 0, not bothering to do the calculations.
+					//	SREG[0]=1;  Already set in the calculations
+					PC=PC+16'd1;
+				end
 					
 
 			endcase			
 			
-			if(OPCODE==ret && 0)
-			begin
-				state=STUCK;
-			end
-			else
-			begin
+
 				state=FETCH;
-			end
-			
+		
 		end
 		
 		STUCK:
@@ -1325,11 +1374,14 @@ begin
 		if(lastRXstate!=dataCount)
 		begin
 			lastRXstate=dataCount;
-			if(readdata==8'd169)
+			if(readdata==8'd169 && enableProg==1)
 			begin
 				programmingMode=4'd1;
 				nextByteProgCounter=0;
 				timeToExitProgramming=40'd5000000;	
+				debugging=0;	
+				breakAt=0;
+				breakAt2=0;
 			end
 			
 			if(readdata==8'd42)
@@ -1337,8 +1389,27 @@ begin
 				programmingMode=4'd2;
 				nextByteProgCounter=0;
 				timeToExitProgramming=40'd5000000;
-				progDetect=4'd0;		
+				progDetect=4'd0;	
 			end				
+		end
+		
+		if(state==FETCH && PC!=0 && debugging==0)
+		begin
+			if(PC==breakAt || PC==breakAt2)
+			begin
+				debugging=1;
+				if(TXcomplete==1)
+				begin					
+					dataToShiftProg[0]=42;  //Init message
+					dataToShiftProg[1]=8'd25;
+					dataToShiftProg[2]=1; //We are debugging
+					dataToShiftProg[3]=0;
+					dataToShiftProg[4]=0;
+					dataToShiftProg[5]=0;			
+
+					shifterStateProg=!shifterStateProg;			
+				end		
+			end
 		end
 	end
 	else if(programmingMode==4'd1)
@@ -1522,6 +1593,22 @@ begin
 					end					
 				end
 				
+				8'd16:
+				begin //Direct data
+					lastRXstateI=!lastRXstateI;
+					lastRXdata[0]=inBuffer[1];
+					lastRXdata[1]=inBuffer[2];
+					lastRXdata[2]=inBuffer[3];
+					lastRXdata[3]=inBuffer[4];
+				end
+				
+				8'd17: //Breakpoint
+				begin
+					breakAt[7:0]=inBuffer[1];
+					breakAt[15:8]=inBuffer[2];
+					breakAt2[7:0]=inBuffer[3];
+					breakAt2[15:8]=inBuffer[4];
+				end
 				
 				default:
 				begin
@@ -1540,12 +1627,15 @@ reg [7:0]inBuffer[10];
 reg [49:0]nextByteProgCounter;
 reg lastRXstate;
 
-
+reg [15:0]stopAt;
 
 reg debugging=0;
 
 reg[7:0]SETcyclesToDo=0;
 reg gotCycles=0;
+
+reg [15:0]breakAt;
+reg [15:0]breakAt2;
 
 reg [3:0]progDetect;
 
