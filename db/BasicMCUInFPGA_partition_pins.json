@@ -92,6 +92,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "progMode",
+					"strict" : false
+				},
+				{
+					"name" : "TXD",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

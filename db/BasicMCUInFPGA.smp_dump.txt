@@ -1,11 +1,23 @@
 
-State Machine - |BasicMCUInFPGA|progDetect
-Name progDetect.0000 progDetect.0010 progDetect.0001 
-progDetect.0000 0 0 0 
-progDetect.0001 1 0 1 
-progDetect.0010 1 1 0 
+State Machine - |BasicMCUInFPGA|programmingMode
+Name programmingMode.0000 programmingMode.0010 programmingMode.0001 
+programmingMode.0000 0 0 0 
+programmingMode.0001 1 0 1 
+programmingMode.0010 1 1 0 
 
 State Machine - |BasicMCUInFPGA|UART:prog|state
 Name state.data 
 state.waiting 0 
 state.data 1 
+
+State Machine - |BasicMCUInFPGA|packetSenter:sender|state
+Name state.working 
+state.waiting 0 
+state.working 1 
+
+State Machine - |BasicMCUInFPGA|packetSenter:sender|outputShifter:shifter|state
+Name state.stop state.data state.start state.waiting 
+state.waiting 0 0 0 0 
+state.start 0 0 1 1 
+state.data 0 1 0 1 
+state.stop 1 0 0 1 

@@ -13,20 +13,79 @@ module BasicMCUInFPGA(input clk,
 							input RXD,
 							input buttProg,
 							input reset,
-							output progMode);
+							output progMode,output TXD);
 
 assign stuck=(state==STUCK);
 
-//assign progMode=programmingMode;
+assign progMode=(programmingMode!=4'd0);
 
-assign digitalIO=(programmingMode==1'b1)?8'b10101010:{3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
-
+//assign digitalIO=(programmingMode==4'd0)?{3'd0,IOregs[8'd5][5:0],IOregs[8'd11]}:8'b10101010;
+assign digitalIO={3'd0,IOregs[8'd5][5:0],IOregs[8'd11]};
+//assign digitalIO[7:0]=TXdebug;
 //assign digitalIO={flash_out_1,flash_out_2};
 //assign digitalIO=(buttProg==1'b1)?{flash_out_1}:nextByteProgCounter;
 //assign digitalIO={8'd0,OPCODE};	
-//assign digitalIO=debugData;
+//assign digitalIO=SETcyclesToDo;
 //assign digitalIO={IOregs[62],reg1output};
 assign debug={OPCODE[3:0],state};	
+
+reg [31:0]slowDownMax=32'd3000000;
+
+
+
+reg[7:0]dataToShiftReal[6];
+reg[7:0]dataToShift[6];
+reg[7:0]dataToShiftProg[6];
+
+reg shifterStateReal=0;
+reg shifterState=0;
+reg shifterStateProg=0;
+
+reg lastShifterState=0;
+reg lastShifterStateProg=0;
+
+wire TXcomplete;
+wire TXIcomplete;
+
+always @(posedge clk)
+begin	
+	if(lastShifterState!=shifterState)
+	begin
+		lastShifterState=shifterState;
+		if(TXcomplete==1)
+		begin
+			dataToShiftReal[0]=dataToShift[0];
+			dataToShiftReal[1]=dataToShift[1];
+			dataToShiftReal[2]=dataToShift[2];
+			dataToShiftReal[3]=dataToShift[3];
+			dataToShiftReal[4]=dataToShift[4];
+			dataToShiftReal[5]=dataToShift[5];
+			shifterStateReal=!shifterStateReal;			
+		end
+	end
+	else	
+	if(lastShifterStateProg!=shifterStateProg)
+	begin
+		lastShifterStateProg=shifterStateProg;
+		if(TXcomplete==1)
+		begin
+			dataToShiftReal[0]=dataToShiftProg[0];
+			dataToShiftReal[1]=dataToShiftProg[1];
+			dataToShiftReal[2]=dataToShiftProg[2];
+			dataToShiftReal[3]=dataToShiftProg[3];
+			dataToShiftReal[4]=dataToShiftProg[4];
+			dataToShiftReal[5]=dataToShiftProg[5];
+			shifterStateReal=!shifterStateReal;			
+		end
+	end
+end
+
+packetSenter sender(clk,TXD,dataToShiftReal[0],
+									dataToShiftReal[1],
+									dataToShiftReal[2],
+									dataToShiftReal[3],
+									dataToShiftReal[4],
+									dataToShiftReal[5],shifterStateReal,TXcomplete,TXIcomplete);
 
 reg[15:0]debugData;
 reg [7:0]result;
@@ -152,7 +211,7 @@ wire slowclk;
 
 assign finalClock=slowclk;
 
-slowClock cloco(clk, slowclk);
+slowClock cloco(clk, slowclk,slowDownMax);
 
 
 
@@ -170,33 +229,116 @@ PushButton_Debouncer debouncer(slowClock,butt,myClock);
 
 wire [15:0]bit16Debug;
 
+wire [255:0]directOutputX;
+wire [7:0]directOutput[32];
 
-registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output,reg2input,writeEn2,bit16Debug);
+assign directOutput[31]=directOutputX[7:0];
+assign directOutput[30]=directOutputX[15:8];
+assign directOutput[29]=directOutputX[23:16];
+assign directOutput[28]=directOutputX[31:24];
+assign directOutput[27]=directOutputX[39:32];
+assign directOutput[26]=directOutputX[47:40];
+assign directOutput[25]=directOutputX[55:48];
+assign directOutput[24]=directOutputX[63:56];
+assign directOutput[23]=directOutputX[71:64];
+assign directOutput[22]=directOutputX[79:72];
+assign directOutput[21]=directOutputX[87:80];
+assign directOutput[20]=directOutputX[95:88];
+assign directOutput[19]=directOutputX[103:96];
+assign directOutput[18]=directOutputX[111:104];
+assign directOutput[17]=directOutputX[119:112];
+assign directOutput[16]=directOutputX[127:120];
+assign directOutput[15]=directOutputX[135:128];
+assign directOutput[14]=directOutputX[143:136];
+assign directOutput[13]=directOutputX[151:144];
+assign directOutput[12]=directOutputX[159:152];
+assign directOutput[11]=directOutputX[167:160];
+assign directOutput[10]=directOutputX[175:168];
+assign directOutput[9]=directOutputX[183:176];
+assign directOutput[8]=directOutputX[191:184];
+assign directOutput[7]=directOutputX[199:192];
+assign directOutput[6]=directOutputX[207:200];
+assign directOutput[5]=directOutputX[215:208];
+assign directOutput[4]=directOutputX[223:216];
+assign directOutput[3]=directOutputX[231:224];
+assign directOutput[2]=directOutputX[239:232];
+assign directOutput[1]=directOutputX[247:240];
+assign directOutput[0]=directOutputX[255:248];
+
+registerFile regFile(clk,reg1input,writeEn,reg1address,reg1output,reg2address,reg2output,reg2input,writeEn2,bit16Debug,directOutputX);
 reg [15:0]resultWord;
 
-FLASH flash((programmingMode==1'b0)?PC:flash_addr_1,PC+1,clk,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
+FLASH flash((programmingMode==4'd0)?PC:flash_addr_1,PC+1,clk,flash_dataIN_1,flash_dataIN_2,(programmingMode==4'd0)?0:flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 //FLASH flash(PC,PC+1,finalClock,flash_dataIN_1,flash_dataIN_2,flash_WRen_1,flash_WRen_2,flash_out_1,flash_out_2);
 
 
 RAM ram(ram_address,clk,ram_inputData,ram_WRen,ram_outputData);
 
-reg programmingMode;
+reg [3:0]programmingMode;
+reg [7:0]cyclesToDo=0;
 
 reg skipNext=1'b0;
+reg hasToStopNextFETCH=0;
+
 
 always @(posedge finalClock)
 begin
-		
-	if(programmingMode==1'b0)
+	
+	if(copyVars==1)
 	begin
+		copied=1;
+		IOregs[8'd11]=IO11;
+	end
+	else
+	begin
+		copied=0;
+	end	
+	
+	if(toReset==1)
+	begin
+		reseted=1;		
+		PC=0;
+		SP=0;
+		SREG=0;
+		state=FETCH;
+		IOregs[8'd5]=0;
+		IOregs[8'd11]=0;
+	end
+	else
+	begin
+		reseted=0;
+	end
+	
+	if(SETcyclesToDo>0)
+	begin
+		cyclesToDo=cyclesToDo+SETcyclesToDo;
+		gotCycles=1;
+	end
+	else
+	begin
+		gotCycles=0;
+	end
+	
+	
+		
+			
+	if(programmingMode==4'd0 && (debugging==0 || cyclesToDo>0)) 
+	begin
+	
+		if(cyclesToDo>0)cyclesToDo=cyclesToDo-1;
+	
 		case (state)
 				
 		FETCH:
 		begin
 			//Wait for the RAM to output the data	
 			//lsr
-			state=FETCH2;
-			state=FETCH2;
+			//if(PC!=17'hac/2)state=FETCH2;
+			
+				state=FETCH2;
+			
+		
+			
 		
 			writeEn=1'b0;
 			writeEn2=1'b0;
@@ -250,6 +392,7 @@ begin
 				begin
 					writeEn=1'b0; //Just in case, we sent writeEn to 0
 					reg1address=readedByte1[8:4]; //Request the data in the register file stored in the register we want
+
 					//Wait just in case the register file taskes 1 cycle to output the data
 				end
 				
@@ -590,10 +733,17 @@ begin
 					begin
 						SP[15:8]=reg1output; //If the IO reg is 62, its is SPH
 					end
+					else if({readedByte1[10:9],readedByte1[3:0]}==6'h8)
+					begin
+						
+						/*dataToShift[0]=8'd32;
+						dataToShift[1]=reg1output;	
+						shifterState=!shifterState;*/
+						//if(PC!=17'hac/2) state=STUCK;
+					end
 					else
 					begin
-						IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output
-						
+						IOregs[{readedByte1[10:9],readedByte1[3:0]}]=reg1output;  //Set the right IO register to the data in the register file output						
 					end				
 					 
 					PC=PC+16'd1;		
@@ -1131,45 +1281,68 @@ begin
 			//Stay here until the Wraiths destroy this planet :P
 		end
 		
-	endcase
+		endcase
 	
-	SREG[4]=SREG[3]^SREG[2]; //Update the XOR in the SREG register
+		SREG[4]=SREG[3]^SREG[2]; //Update the XOR in the SREG register
+		
+		IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
+		IOregs[62]=SP[15:8];
+		
 	
-	IOregs[61]=SP[7:0];   //Update real IO stack registers from the SP that we use
-	IOregs[62]=SP[15:8];
+		
 	
-	flash_WRen_1=0;
-	case(progDetect)
-	4'd0:
+	end 
+end
+
+reg [7:0]IO11=0;
+reg copyVars=0;
+reg copied=0;
+
+reg reseted=0;
+reg toReset=0;
+
+always @(posedge clk)
+begin
+	
+	if(copied)
 	begin
-		if(readdata==8'd169) progDetect=4'd1;
+		copyVars=0;
 	end
-	4'd1:
+	
+	if(reseted)
 	begin
-		if(readdata==8'd68) progDetect=4'd2;
+		toReset=0;
 	end
-	4'd2:
+	
+	if(gotCycles)
 	begin
-		if(readdata==8'd69) 
+		SETcyclesToDo=0;
+	end
+	
+
+	if(programmingMode==4'd0)
+	begin
+		if(lastRXstate!=dataCount)
 		begin
-			programmingMode=1'b1;
 			lastRXstate=dataCount;
-			nextByteProgCounter=0;
-			timeToExitProgramming=40'd5000000;
-			progDetect=4'd0;			
+			if(readdata==8'd169)
+			begin
+				programmingMode=4'd1;
+				nextByteProgCounter=0;
+				timeToExitProgramming=40'd5000000;	
+			end
+			
+			if(readdata==8'd42)
+			begin
+				programmingMode=4'd2;
+				nextByteProgCounter=0;
+				timeToExitProgramming=40'd5000000;
+				progDetect=4'd0;		
+			end				
 		end
 	end
-	default:
-	begin
-		progDetect=4'd0;
-	end
-	endcase
-	
-	
-	end
-	else 
-	begin
-			
+	else if(programmingMode==4'd1)
+	begin			
 		if(lastRXstate!=dataCount)
 		begin
 			timeToExitProgramming=40'd5000000;
@@ -1183,8 +1356,8 @@ begin
 			begin
 				flash_WRen_1=1;
 				flash_dataIN_1[7:0]=readdata;
-
 			end				
+			
 			
 			nextByteProgCounter=nextByteProgCounter+1;
 			lastRXstate=dataCount;							
@@ -1194,25 +1367,185 @@ begin
 			timeToExitProgramming=timeToExitProgramming-1;
 			if(timeToExitProgramming<=0)
 			begin
-				 programmingMode=0;
+				 programmingMode=4'd0;
+				 toReset=1;
 				flash_WRen_1=0;
 			end
+		end	
+	end
+	else if(programmingMode==4'd2)
+	begin		
+		
+		if(progDetect<4'd5)
+		begin
+			if(lastRXstate!=dataCount)
+			begin				
+				lastRXstate=dataCount;
+				inBuffer[progDetect]=readdata;
+				progDetect=progDetect+1;
+			end				
+		end
+		else
+		begin
+			progDetect=0;			
+			programmingMode=0;
+			
+			case (inBuffer[0])
+				8'd6:
+				begin //Set output
+					IO11=inBuffer[1];
+					copyVars=1;					
+				end
+				
+				8'd3:
+				begin //Reset
+					toReset=1;
+				end
+				
+				8'd4:
+				begin //Echo
+					if(TXcomplete==1)
+					begin					
+						dataToShiftProg[0]=8'd4;
+						dataToShiftProg[1]=inBuffer[1];
+						dataToShiftProg[2]=inBuffer[2];
+						dataToShiftProg[3]=inBuffer[3];
+						dataToShiftProg[4]=inBuffer[4];
+						dataToShiftProg[5]=8'd4;						
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				8'd5:
+				begin //get PC
+					if(TXcomplete==1)
+					begin		
+						dataToShiftProg[0]=42;  //Init message
+						dataToShiftProg[1]=8'd5;
+						dataToShiftProg[2]=PC[15:8];
+						dataToShiftProg[3]=PC[7:0];
+						dataToShiftProg[4]=state;
+						dataToShiftProg[5]=OPCODE;
+											
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				8'd7:
+				begin //Set clock multiplier						
+					slowDownMax[7:0]=inBuffer[1];
+					slowDownMax[15:8]=inBuffer[2];
+					slowDownMax[23:16]=inBuffer[3];
+					slowDownMax[31:24]=inBuffer[4];	
+				end
+				
+				8'd8:
+				begin //Enter debugging						
+					debugging=1;
+				end
+				
+				8'd9:
+				begin //Exit debugging					
+					debugging=0;
+				end
+				
+				8'd10:
+				begin //Add cycle					
+					SETcyclesToDo=SETcyclesToDo+1;//inBuffer[1];
+				end
+				
+				8'd11:
+				begin //Go until next instruction					
+					SETcyclesToDo=SETcyclesToDo+(6-state);//inBuffer[1];
+				end
+				
+				8'd12:
+				begin //get RegisterStartingFrom [1]
+					if(TXcomplete==1)
+					begin		
+						dataToShiftProg[0]=42;  //Init message
+						dataToShiftProg[1]=8'd12;
+						dataToShiftProg[2]=inBuffer[1];
+						dataToShiftProg[3]=directOutput[inBuffer[1]];
+						dataToShiftProg[4]=directOutput[inBuffer[1]+1];
+						dataToShiftProg[5]=directOutput[inBuffer[1]+2];
+											
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				8'd13:
+				begin //get IORegsStartingFrom [1]
+					if(TXcomplete==1)
+					begin		
+						dataToShiftProg[0]=42;  //Init message
+						dataToShiftProg[1]=8'd13;
+						dataToShiftProg[2]=inBuffer[1];
+						dataToShiftProg[3]=IOregs[inBuffer[1]];
+						dataToShiftProg[4]=IOregs[inBuffer[1]+1];
+						dataToShiftProg[5]=IOregs[inBuffer[1]+2];											
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				8'd14:
+				begin //get SP
+					if(TXcomplete==1)
+					begin		
+						dataToShiftProg[0]=42;  //Init message
+						dataToShiftProg[1]=8'd14;
+						dataToShiftProg[2]=SP[15:8];
+						dataToShiftProg[3]=SP[7:0];
+						dataToShiftProg[4]=0;
+						dataToShiftProg[5]=0;											
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				8'd15:
+				begin //get Flash data
+					if(TXcomplete==1)
+					begin		
+						dataToShiftProg[0]=42;  //Init message
+						dataToShiftProg[1]=8'd15;
+						dataToShiftProg[2]=readedByte1[15:8];
+						dataToShiftProg[3]=readedByte1[7:0];
+						dataToShiftProg[4]=readedByte2[15:8];
+						dataToShiftProg[5]=readedByte2[7:0];											
+
+						shifterStateProg=!shifterStateProg;			
+					end					
+				end
+				
+				
+				default:
+				begin
+				
+				end
+			endcase
 		end
 		
-		
-		PC=0;
-		SP=0;
-		SREG=0;
-		state=FETCH;
-		IOregs[8'd5]=0;
-		IOregs[8'd11]=0;
-	end
 	
+	end
 end
 
 
+reg [7:0]inBuffer[10];
+
 reg [49:0]nextByteProgCounter;
 reg lastRXstate;
+
+
+
+reg debugging=0;
+
+reg[7:0]SETcyclesToDo=0;
+reg gotCycles=0;
 
 reg [3:0]progDetect;
 

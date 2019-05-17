@@ -3,75 +3,75 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'slowClock:cloco|clk_out'
-Slack : -10.162
-TNS   : -1348.283
+Slack : -10.023
+TNS   : -5524.200
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -4.104
-TNS   : -1389.211
+Slack : -6.994
+TNS   : -2950.733
 
 Type  : Slow 1200mV 85C Model Hold 'slowClock:cloco|clk_out'
-Slack : 0.386
+Slack : 0.336
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.387
+Slack : 0.361
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -888.223
+TNS   : -1304.563
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'slowClock:cloco|clk_out'
 Slack : -1.285
-TNS   : -295.550
+TNS   : -828.825
 
 Type  : Slow 1200mV 0C Model Setup 'slowClock:cloco|clk_out'
-Slack : -9.260
-TNS   : -1217.375
+Slack : -9.153
+TNS   : -4998.101
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.703
-TNS   : -1221.973
+Slack : -6.366
+TNS   : -2644.524
 
 Type  : Slow 1200mV 0C Model Hold 'slowClock:cloco|clk_out'
-Slack : 0.337
+Slack : 0.330
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.340
+Slack : 0.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -880.919
+TNS   : -1297.259
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'slowClock:cloco|clk_out'
 Slack : -1.285
-TNS   : -295.550
+TNS   : -828.825
 
 Type  : Fast 1200mV 0C Model Setup 'slowClock:cloco|clk_out'
-Slack : -4.454
-TNS   : -552.529
+Slack : -4.497
+TNS   : -2359.872
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.515
-TNS   : -458.941
+Slack : -3.099
+TNS   : -1097.365
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : 0.123
+Slack : 0.142
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'slowClock:cloco|clk_out'
-Slack : 0.174
+Slack : 0.167
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -552.634
+TNS   : -896.537
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'slowClock:cloco|clk_out'
 Slack : -1.000
-TNS   : -230.000
+TNS   : -645.000
 
 ------------------------------------------------------------

@@ -35,7 +35,7 @@ begin
 				if(RX==1'b0)
 				begin
 					state=data;
-					timeForNextBit=pulses9600With5; 
+					timeForNextBit=pulses115200With5; 
 					dataBitCounter=0;	
 				end
 			end
@@ -49,7 +49,7 @@ begin
 						buffer[dataBitCounter]=RX;
 						dataBitCounter=dataBitCounter+1;
 						
-						timeForNextBit=pulses9600;
+						timeForNextBit=pulses115200;
 					end
 					else if(dataBitCounter==16'd8)
 					begin
@@ -59,7 +59,7 @@ begin
 							newData=!newData;
 						end	
 						dataBitCounter=dataBitCounter+1;
-						timeForNextBit=pulses9600With52;
+						timeForNextBit=pulses115200With52;
 					end
 					else
 					begin

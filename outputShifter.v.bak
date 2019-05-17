@@ -1,0 +1,26 @@
+module outputShifter(input clk,output outputPin,input [7:0]data,input state)
+
+reg lastState;
+reg [7:0]counter;
+
+always @(posedge clk)
+begin
+	
+	if(lastState!=state)
+	begin
+		lastState=state;
+		counter=0;
+	end
+	else
+	begin
+		if(counter<8)
+		begin
+			outputPin=data;
+			counter=counter+1;
+		end
+	end
+	
+end
+
+
+endmodule

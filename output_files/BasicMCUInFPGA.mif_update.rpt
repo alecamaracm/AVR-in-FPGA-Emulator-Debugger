@@ -1,5 +1,5 @@
 MIF/HEX Update report for BasicMCUInFPGA
-Fri May 03 17:28:39 2019
+Thu May 16 13:22:27 2019
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; MIF/HEX Update Summary                                        ;
 +-----------------------+---------------------------------------+
-; MIF/HEX Update Status ; Successful - Fri May 03 17:28:39 2019 ;
+; MIF/HEX Update Status ; Successful - Thu May 16 13:22:27 2019 ;
 ; Revision Name         ; BasicMCUInFPGA                        ;
 ; Top-level Entity Name ; BasicMCUInFPGA                        ;
 ; Family                ; Cyclone IV E                          ;
@@ -49,7 +49,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; File Name                                                           ;
 +---------------------------------------------------------------------+
-; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex ;
+; C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex ;
 +---------------------------------------------------------------------+
 
 
@@ -59,26 +59,26 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Fri May 03 17:28:38 2019
+    Info: Processing started: Thu May 16 13:22:27 2019
 Info: Command: quartus_cdb BasicMCUInFPGA -c BasicMCUInFPGA --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Warning (113015): Width of data items in "flash.hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 12 warnings, reporting 10 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 1
-    Warning (113009): Data at line (1) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 1
-    Warning (113009): Data at line (2) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 2
-    Warning (113009): Data at line (3) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 3
-    Warning (113009): Data at line (4) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 4
-    Warning (113009): Data at line (5) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 5
-    Warning (113009): Data at line (6) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 6
-    Warning (113009): Data at line (7) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 7
-    Warning (113009): Data at line (8) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 8
-    Warning (113009): Data at line (9) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 9
-    Warning (113009): Data at line (10) of memory initialization file "flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 10
-Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (93) in the Memory Initialization File "C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex" -- setting initial value for remaining addresses to 0
+Warning (113015): Width of data items in "Flash.hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 12 warnings, reporting 10 File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 1
+    Warning (113009): Data at line (1) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 1
+    Warning (113009): Data at line (2) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 2
+    Warning (113009): Data at line (3) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 3
+    Warning (113009): Data at line (4) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 4
+    Warning (113009): Data at line (5) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 5
+    Warning (113009): Data at line (6) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 6
+    Warning (113009): Data at line (7) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 7
+    Warning (113009): Data at line (8) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 8
+    Warning (113009): Data at line (9) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 9
+    Warning (113009): Data at line (10) of memory initialization file "Flash.hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses. File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 10
+Critical Warning (127005): Memory depth (16384) in the design file differs from memory depth (90) in the Memory Initialization File "C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex" -- setting initial value for remaining addresses to 0
 Info (39024): Processed the following Memory Initialization File(s)
-    Info (39025): Processed Memory Initialization File C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/flash.hex Line: 0
+    Info (39025): Processed Memory Initialization File C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex File: C:/Users/cabrera/Desktop/Drone303Project/ECE289-AVRinFPGA/Flash.hex Line: 0
 Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Fri May 03 17:28:39 2019
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Thu May 16 13:22:28 2019
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
