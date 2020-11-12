@@ -8,6 +8,7 @@ This project is currently abandoned, but in its current state it should work on 
 
 Specialized HW blocks like DMA inputs/outputs and timer prescaling are not implemented.
 
+[![Product Name Screen Shot][screenshot]](https://example.com)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -25,7 +26,7 @@ To get a local copy of the project and follow these steps.
 <!-- ROADMAP -->
 ## Roadmap
 This project has been abandoned as of right now but it is in a "usable" state. There is a decent chance that I will come back to it in the near future, but no guarantees are given.
-[![Product Name Screen Shot][screenshot]](https://example.com)
+
 
 
 
