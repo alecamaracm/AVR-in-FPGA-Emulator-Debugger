@@ -58,4 +58,4 @@ Project Link: [https://github.com/alecamaracm/AVR-in-FPGA-Emulator-Debugger](htt
 
 * To [Peter Jamieson](https://twitter.com/peterajamieson), for being an awesome professor and introducing me to the world of digital systems.]
 
-[screenshot]: images/debugger.jpeg
+[screenshot]: images/debugger.png
