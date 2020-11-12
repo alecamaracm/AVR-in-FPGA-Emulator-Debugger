@@ -49,10 +49,10 @@ Distributed under the MIT License.
 
 Alejandro Cabrerizo - [@alecamaracm](https://twitter.com/alecamaracm) - [alecamar] AT [hotmail.es]
 
-Project Link: [https://github.com/alecamaracm/LED-Matrix-with-Render-and-HDMI-support](https://github.com/alecamaracm/LED-Matrix-with-Render-and-HDMI-support)
+Project Link: [https://github.com/alecamaracm/AVR-in-FPGA-Emulator-Debugger](https://github.com/alecamaracm/AVR-in-FPGA-Emulator-Debugger)
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [To Peter Jamieson, for being an awesome professor and introducing me to the world of digital systems.](https://twitter.com/peterajamieson)
+* To [Peter Jamieson](https://twitter.com/peterajamieson), for being an awesome professor and introducing me to the world of digital systems.]
