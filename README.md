@@ -25,7 +25,7 @@ To get a local copy of the project and follow these steps.
 <!-- ROADMAP -->
 ## Roadmap
 This project has been abandoned as of right now but it is in a "usable" state. There is a decent chance that I will come back to it in the near future, but no guarantees are given.
-[![Product Name Screen Shot][images/debugger.png]](https://example.com)
+[![Product Name Screen Shot][screenshot]](https://example.com)
 
 
 
@@ -57,3 +57,5 @@ Project Link: [https://github.com/alecamaracm/AVR-in-FPGA-Emulator-Debugger](htt
 ## Acknowledgements
 
 * To [Peter Jamieson](https://twitter.com/peterajamieson), for being an awesome professor and introducing me to the world of digital systems.]
+
+[screenshot]: images/debugger.jpeg
